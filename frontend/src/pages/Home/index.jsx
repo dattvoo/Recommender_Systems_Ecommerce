@@ -1,6 +1,12 @@
+import { Header } from "./Header";
 
-export const index = () => {
+
+ const HomePage = () => {
   return (
-    <div>index</div>
+    <>
+      Home Page
+      <Header/>
+    </>
   )
 }
+export default HomePage;
