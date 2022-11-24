@@ -1,11 +1,9 @@
 import './App.css';
-import { Button, Space } from 'antd';
+import HomePage from "./pages/Home"
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-          Helloo
-      </header>
+      <HomePage />
     </div>
   );
 }
