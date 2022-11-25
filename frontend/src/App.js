@@ -1,4 +1,5 @@
 import './App.css';
+import { Content2 } from './component/content2';
 import { Footer } from './component/footer';
 import HomePage from "./pages/Home"
 import {FromBlog} from "./pages/Home/FromBlog/"
@@ -8,7 +9,9 @@ function App() {
     <div className="App">
       <HomePage />
       <FromBlog />
+      <Content2 />
       <Footer />
+      
     </div>
   );
 }
