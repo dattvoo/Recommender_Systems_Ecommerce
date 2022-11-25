@@ -92,7 +92,7 @@ export const Footer = () => {
             <div className='grid wide'>
                 <div className='footer-infor row'>
                     <div className='footer-copyright l-6 m-12 c-12'>
-                        Copyright © 2020 <a>Wpthemesgrid</a> - All Rights Reserved.
+                        Copyright © 2020 <a className='footer-link' href='#'>Wpthemesgrid</a> - All Rights Reserved.
                     </div>
 
                     <div className='footer-payment-icon l-6 m-12 c-12'>
