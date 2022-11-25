@@ -1,0 +1,83 @@
+.footer{
+    background-color: #222222;
+    padding: 50px 0 20px;
+}
+
+.footer-top{
+    color: #fff;
+    margin-bottom: 32px;
+}
+
+.footer-one{
+    padding-right: 20px;
+}
+
+.footer-logo{
+    vertical-align: middle;
+}
+
+.footer-contact{
+    display: flex;
+    flex-direction: column;
+}
+
+.footer-about{
+    text-align: left;
+    padding-top: 20px;
+}
+
+.footer-contact{
+    text-align: left;
+    margin-top: 20px;
+    font-weight: 400;
+}
+
+.footer-contact__number{
+    margin-top: 4px;
+    color: #f7941d;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.footer__title{
+    text-align: left;
+    margin: 0;
+    font-size: 20px;
+}
+
+.footer__list{
+    list-style: none;
+    text-align: left;
+    padding-left: 0;
+    font-weight: 400;
+}
+
+.footer__item{
+    padding: 4px 0;
+}
+
+.list-media{
+    display: flex;
+}
+
+.list-media .footer__item{
+    padding:  0 8px;
+}
+
+.footer-bottom{
+    padding: 0 0 20px;
+}
+
+.footer-bottom .footer-infor{
+    padding-top: 28px;
+    border-top: 1px solid #333;
+
+}
+
+.footer-copyright{
+    color: #fff;
+}
+
+.footer-payment-img{
+    float: right;
+}
