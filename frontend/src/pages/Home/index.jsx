@@ -1,12 +1,13 @@
 import { Header } from "./Header";
+import { TrendingItem } from "./TrendingItem";
 
-
- const HomePage = () => {
+const HomePage = () => {
   return (
     <>
       Home Page
-      <Header/>
+      <Header />
+      <TrendingItem />
     </>
-  )
-}
+  );
+};
 export default HomePage;
