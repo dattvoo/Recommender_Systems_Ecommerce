@@ -82,6 +82,20 @@
     float: right;
 }
 
-.footer-link{
+.footer__link,
+.footer__link-shop{
     color: #fff;
+}
+
+
+.footer__link{
+    text-decoration: none;
+    transition: right linear 0.2s;
+    position: relative;
+    right: 0;
+}
+
+.footer__item:hover .footer__link{
+    color: #f7941d;
+    right: -6px;
 }

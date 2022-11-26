@@ -1,44 +1,16 @@
 /* Mobile & Tablet  */
 
 @media (max-width:1023px){
-    .footer-bottom{
-        text-align: center;
-    }
-
-    .footer-copyright{
-        margin-bottom: 20px;
-    }
-
-    .footer-payment-icon{
-       display: flex;
-    }
-
-    .footer-payment-img{
-        margin: auto;
-    }
+    
 }
 /* Tablet */
 
 @media (min-width:740px) and (max-width:1023px){
-    .footer-service,
-    .footer-social{
-        margin-top: 32px;
-    }
+   
 }
 
 /* Mobile  */
 
 @media (max-width:739px){
-    .footer{
-        padding-left: 20px;
-        padding-right: 20px;
-    }
-
-    .footer-infor{
-        margin-top: 24px;
-    }
-
-    .footer-copyright{
-        font-size: 15px;
-    }
+    
 }
