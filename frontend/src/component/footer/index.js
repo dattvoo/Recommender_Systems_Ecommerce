@@ -1,8 +1,8 @@
 import React from 'react'
-import '../general/css/grid.css'
 import './assets/css/index.css'
 import './assets/css/res.css'
-import '../general/fontawesome-free-6.2.0-web/css/all.min.css'
+import '../../general/css/grid.css'
+import '../../general/fontawesome-free-6.2.0-web/css/all.min.css'
 
 
 export const Footer = () => {
@@ -15,7 +15,7 @@ export const Footer = () => {
                         <div className='footer-one'>
                             <div className='footer-logo'>
 
-                                <img src={require("../general/img/logo2.png")} className='footer-logo-img'/>
+                                <img src={require("../../general/img/logo2.png")} className='footer-logo-img'/>
 
                             </div>
 
@@ -100,7 +100,7 @@ export const Footer = () => {
 
                     <div className='footer-payment-icon l-6 m-12 c-12'>
 
-                        <img className='footer-payment-img' src={require("../general/img/payments.png")} />
+                        <img className='footer-payment-img' src={require("../../general/img/payments.png")} />
 
                     </div>
                 </div>
