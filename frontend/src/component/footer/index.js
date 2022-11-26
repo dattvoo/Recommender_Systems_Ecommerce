@@ -13,7 +13,7 @@ export const Footer = () => {
                     <div className='l-5 m-6 c-12'>
                         <div className='footer-one'>
                             <div className='footer-logo'>
-                                <img src={require("./assets/img/logo2.png")} className='footer-logo-img'/>
+                                <img alt="" src={require("./assets/img/logo2.png")} className='footer-logo-img' />
                             </div>
 
                             <div className='footer-about'>
@@ -96,7 +96,7 @@ export const Footer = () => {
                     </div>
 
                     <div className='footer-payment-icon l-6 m-12 c-12'>
-                        <img className='footer-payment-img' src={require("./assets/img/payments.png")} />
+                        <img alt="" className='footer-payment-img' src={require("./assets/img/payments.png")} />
                     </div>
                 </div>
             </div>
