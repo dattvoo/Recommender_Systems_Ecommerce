@@ -1,8 +1,9 @@
 import React from 'react'
-import '../general/css/grid.css'
 import './css/index.css'
 // import './assets/css/res.css'
-import '../general/fontawesome-free-6.2.0-web/css/all.min.css'
+import '../../general/css/grid.css'
+import '../../general/fontawesome-free-6.2.0-web/css/all.min.css'
+
 
 
 export const Content5 = () => {
