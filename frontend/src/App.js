@@ -1,5 +1,6 @@
 import './App.css';
 import { Content2 } from './component/content2';
+import { Content5 } from './component/content5';
 import { Footer } from './component/footer';
 import TrendingItems from './pages/Home';
 import HomePage from "./pages/Home"
@@ -11,6 +12,7 @@ function App() {
       <HomePage />
       <FromBlog />
       <Content2 />
+      <Content5 />
       <Footer />
       
     </div>
