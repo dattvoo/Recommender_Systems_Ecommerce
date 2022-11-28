@@ -1,13 +1,44 @@
-import React from "react";
-import { Button, Checkbox, Form, Input } from "antd";
-import "./style.css";
+import { Button, Form, Input } from "antd";
+import axios from "axios";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { FormStyle, WrapForm, Wrapper } from "./style";
-export const Login: React.FC = () => {
-  const onFinish = (values: any) => {
-    console.log("Success:", values);
+import "./style.css";
+
+
+
+
+export const Login = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const onFinish = async (values) => {
+    // const { data } = await axios.post(`http://localhost:8000/login`, values);
+    // if(data) {
+    //   dispatch({ type: "LOGIN", payload: data });
+    //   Cookies.set("user", JSON.stringify(data));
+    //   navigate("/");
+    // }
+
+    try {
+      // setLoading(true);
+      const { data } = await axios.post(
+        `${process.env.REACT_APP_BACKEND_URL}/login`,
+
+        values,
+
+      );
+      dispatch({ type: "LOGIN", payload: data });
+      Cookies.set("user", JSON.stringify(data));
+      navigate("/");
+    } catch (error) {
+      // setLoading(false);
+      // setError(error.response.data.message);
+    }
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onFinishFailed = (errorInfo) => {
     console.log("Failed:", errorInfo);
   };
 
@@ -22,7 +53,6 @@ export const Login: React.FC = () => {
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
           autoComplete="off"
-          className=""
         >
           <Form.Item
             label="Username"
@@ -39,15 +69,6 @@ export const Login: React.FC = () => {
           >
             <Input.Password />
           </Form.Item>
-
-          <Form.Item
-            name="remember"
-            valuePropName="checked"
-            wrapperCol={{ offset: 8, span: 16 }}
-          >
-            <Checkbox>Remember me</Checkbox>
-          </Form.Item>
-
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit" className="btn btn-submit">
               Submit
