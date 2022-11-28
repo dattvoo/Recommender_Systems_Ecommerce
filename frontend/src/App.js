@@ -1,21 +1,15 @@
 import './App.css';
-import { Content2 } from './component/content2';
-import { Content5 } from './component/content5';
-import { Footer } from './component/footer';
-import TrendingItems from './pages/Home';
-import HomePage from "./pages/Home"
-import { Content3 } from './pages/Home/Content3';
-import {FromBlog} from "./pages/Home/FromBlog/"
-
+import HomePage from "./pages/Home";
+import { Routes, Route } from 'react-router-dom'
+import { Login } from './pages/Login';
 function App() {
   return (
     <div className="App">
-      <HomePage />
-      <FromBlog />
-      <Content2 />
-      <Content5 />
-      <Footer />
-      
+      <Routes>
+        <Route path='/homepage' element={<HomePage />} />
+        <Route path='/' element={<HomePage />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
