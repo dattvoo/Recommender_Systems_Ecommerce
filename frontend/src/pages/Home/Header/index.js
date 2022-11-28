@@ -2,7 +2,20 @@ import React from 'react'
 import "./style.css"
 import "../../../general/css/grid.css"
 import '../../../general/fontawesome-free-6.2.0-web/css/all.min.css'
-export const Header = () => {
+import { useDispatch } from 'react-redux'
+import Cookies from "js-cookie"
+import { useNavigate } from 'react-router-dom'
+export const Header = ({ user }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleInOut = () => {
+    if (user) {
+      Cookies.set("user", null);
+      dispatch({ type: "LOGOUT" });
+    } else {
+      navigate("/login");
+    }
+  }
   return (
     <div className="header">
       <div class="header-top">
@@ -31,18 +44,18 @@ export const Header = () => {
               <i class="fa-solid fa-user"></i>
               <a href='#' className='item__link'>My Acount</a>
             </li>
-            <li className="header__navbar-item">
+            <li className="header__navbar-item" onClick={handleInOut}>
               <i class="fa-solid fa-power-off"></i>
-              <a href='#' className='item__link'>Login</a>
+              <a href='#' className='item__link' >{user ? "Logout" : "Login"} </a>
             </li>
           </ul>
-        </nav>  
+        </nav>
       </div>
-      
+
       <div className="header-bottom">
         <div className="header-with-search">
           <div className="header__logo">
-            <img src={require("../../../general/img/logo.png")} className='header__logo-img'/>
+            <img src={require("../../../general/img/logo.png")} className='header__logo-img' />
           </div>
 
           <div className="header__search">
@@ -73,14 +86,14 @@ export const Header = () => {
 
             <li className="right__item item__cart">
               <a href='#' className='right__item-link'><i class="fa-solid fa-cart-shopping"></i></a>
-              <span className='cart__quality'>3</span>  
+              <span className='cart__quality'>3</span>
             </li>
           </ul>
 
         </div>
       </div>
 
-    
+
 
     </div>
 
