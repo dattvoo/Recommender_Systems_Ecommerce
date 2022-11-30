@@ -20,7 +20,6 @@ const HomePage = () => {
       <Content2 />
       <Content6/>
       <Content7/>
-      <Cart/>
     </>
   );
 };
