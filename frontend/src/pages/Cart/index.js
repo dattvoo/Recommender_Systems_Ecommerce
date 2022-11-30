@@ -230,7 +230,7 @@ export const Cart = () => {
                     </div>
                 </div>
             </div>
-            <Footer/>
+            <Footer />
         </>
 
     )

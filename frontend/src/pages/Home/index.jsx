@@ -1,6 +1,7 @@
 
 import { useSelector } from "react-redux";
 import { Content2 } from "../../component/content2";
+import { Footer } from "../../component/footer";
 import { Cart } from "../Cart";
 import { Content7 } from "../Content7";
 import { Content1 } from "./Content1";
@@ -20,6 +21,7 @@ const HomePage = () => {
       <Content2 />
       <Content6/>
       <Content7/>
+      <Footer/>
     </>
   );
 };
