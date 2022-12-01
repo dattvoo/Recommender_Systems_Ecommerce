@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.shop-home-list{
+    margin-top: 80px;
+}
+
+.shop-home-list .shop-section-title{
+    margin-bottom: 20px;
+}
+.shop-home-list .shop-section-title h1{
+    font-size: 22px;
+    text-transform: capitalize;
+    position: relative;
+    color: #2c2c3f;
+    font-weight: 700;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+.shop-home-list .shop-section-title h1::before{
+    position: absolute;
+    content: "";
+    height: 2px;
+    width: 50px;
+    background-color: #f7941d;
+    left: 0;
+    bottom: -1px;
+}
+
+.shop-home-list .single-list{
+    overflow: hidden;
+    position: relative;
+    margin-top: 30px;
+    border: 1px solid #eee;
+    padding: 10px;
+}
+.shop-home-list .single-list:hover{
+    box-shadow: 0 10px 10px #3b2c9054;
+}
+.shop-home-list .single-list img{
+    width: 100%;
+    height: 100%;
+}
+.shop-home-list .single-list .list-img{
+    position: relative;
+}
+.shop-home-list .single-list .list-img .buy{
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    color: #fff;
+    background: #f7941d;
+    border-radius: 100%;
+    display: block;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -20px;
+    margin-top: -20px;
+    text-align: center;
+    transition: all 0.4s ease;
+    opacity: 0;
+    visibility: hidden;
+}
+.shop-home-list .single-list .list-img:hover .buy{
+    opacity: 1;
+    visibility: visible;
+}
+.shop-home-list .single-list .list-img .buy:hover{
+    color: #fff;
+    background-color: #000;
+}
+.over-lay::before{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    content: "";
+    transition: all 0.5s ease;
+    opacity: 0;
+    visibility: hidden;
+    background: #000;
+    
+}
+
+.shop-home-list .single-list .list-img.over-lay:hover::before {
+    visibility: visible;
+    opacity: 0.2; 
+    
+}
+
+.shop-home-list .single-list .content{
+    padding-top: 40px;
+    padding-right: 8px;
+}
+.shop-home-list .single-list .content .title{
+    line-height: 18px;
+    font-weight: 700;
+}
+.shop-home-list .single-list .content .title a{
+    font-size: 14px;
+}
+.shop-home-list .single-list .content .price{
+    margin-top: 15px;
+    background: #f7941d;
+    display: inline-block;
+    color: #fff;
+    padding: 2px 18px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+
+.shop-home-list .single-list .no-padding{
+    padding-right: 0;
+}

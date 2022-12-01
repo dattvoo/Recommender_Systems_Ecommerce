@@ -2,7 +2,20 @@ import React from 'react'
 import "./style.css"
 import "../../../general/css/grid.css"
 import '../../../general/fontawesome-free-6.2.0-web/css/all.min.css'
-export const Header = () => {
+import { useDispatch } from 'react-redux'
+import Cookies from "js-cookie"
+import { useNavigate } from 'react-router-dom'
+export const Header = ({ user }) => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const handleInOut = () => {
+    if (user) {
+      Cookies.set("user", null);
+      dispatch({ type: "LOGOUT" });
+    } else {
+      navigate("/login");
+    }
+  }
   return (
     <div className="header">
       <div class="header-top">
@@ -31,18 +44,18 @@ export const Header = () => {
               <i class="fa-solid fa-user"></i>
               <a href='#' className='item__link'>My Acount</a>
             </li>
-            <li className="header__navbar-item">
+            <li className="header__navbar-item" onClick={handleInOut}>
               <i class="fa-solid fa-power-off"></i>
-              <a href='#' className='item__link'>Login</a>
+              <a href='#' className='item__link' >{user ? "Logout" : "Login"} </a>
             </li>
           </ul>
-        </nav>  
+        </nav>
       </div>
-      
+
       <div className="header-bottom">
         <div className="header-with-search">
           <div className="header__logo">
-            <img src={require("../../../general/img/logo.png")} className='header__logo-img'/>
+            <img src={require("../../../general/img/logo.png")} className='header__logo-img' />
           </div>
 
           <div className="header__search">
@@ -73,47 +86,13 @@ export const Header = () => {
 
             <li className="right__item item__cart">
               <a href='#' className='right__item-link'><i class="fa-solid fa-cart-shopping"></i></a>
-              <span className='cart__quality'>3</span>  
+              <span className='cart__quality'>3</span>
             </li>
           </ul>
 
         </div>
       </div>
 
-      <div className="header__menu">
-        <div className="header__menu-top">
-          <div className="menu__category">
-            <i class="fa-solid fa-list"></i>
-            <span>CATEGORIES</span>
-          </div>
-
-          <ul className="menu__list">
-            <li className="menu__item"><a className='menu-item__link' href='#'>Home</a></li>
-            <li className="menu__item"><a className='menu-item__link' href='#'>Product</a></li>
-            <li className="menu__item"><a className='menu-item__link' href='#'>Service</a></li>
-            <li className="menu__item item__shop">
-              <a className='menu-item__link' href='#'>
-                Shop
-                <i class="fa-solid fa-chevron-down"></i> 
-              </a>
-              <ul className="shop__list">
-                <li className="shop__item"><a href='#'>Car</a></li>
-                <li className="shop__item"><a href='#'>Checkout</a></li>
-              </ul> 
-            </li>
-            <li className="menu__item"><a className='menu-item__link' href='#'>Pages</a></li>
-            <li className="menu__item item__blog">
-              <a className='menu-item__link' href='#'>
-                Blog
-                <i class="fa-solid fa-chevron-down"></i>
-              </a>
-              <ul className="blog__list">
-                  <li className="blog__item"><a href='#'>Blog Single Sidebar</a></li>
-              </ul> 
-            </li>
-            <li className="menu__item"><a className='menu-item__link' href='#'>Contact Us</a></li>
-          </ul>
-        </div>
 
         <div className="header__menu-bottom">
 
@@ -205,6 +184,7 @@ export const Header = () => {
           <div className="btn__shop"><a href="#" className="btn__link">SHOP NOW</a></div>
         </div>
       </div>
+
 
     </div>
 
