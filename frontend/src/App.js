@@ -6,6 +6,7 @@ import { LoggedInRoutes } from './router/LoggedInRoutes';
 import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
 import { useSelector } from 'react-redux';
 import { Cart } from './pages/Cart';
+import { Checkout } from './pages/Checkout';
 function App() {
   const user = useSelector((state) => state.user);
   console.log("🚀 ~ file: App.js ~ line 10 ~ App ~ user", user)
@@ -15,6 +16,7 @@ function App() {
         <Route element={<LoggedInRoutes />}>
           <Route path='/homepage' element={<HomePage />} />
           <Route path='/cart' element={<Cart />} />
+          <Route path='/checkout' element={<Checkout />} />
           <Route path='/' element={<HomePage />} />
         </Route>
         <Route element={<NotLoggedInRoutes />}>

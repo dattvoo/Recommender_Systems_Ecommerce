@@ -14,12 +14,7 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
-    // const { data } = await axios.post(`http://localhost:8000/login`, values);
-    // if(data) {
-    //   dispatch({ type: "LOGIN", payload: data });
-    //   Cookies.set("user", JSON.stringify(data));
-    //   navigate("/");
-    // }
+   
 
     try {
       // setLoading(true);

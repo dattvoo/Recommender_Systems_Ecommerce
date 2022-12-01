@@ -3,10 +3,12 @@ import "../../general/css/grid.css"
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css"
 import { Header } from "../Home/Header"
 import { Footer } from "../../component/footer"
+import { Content1 } from "../Home/Content1"
+import { Header2 } from "../../component/Header2"
 export const Cart = () => {
     return (
         <>
-            <Header />
+            <Header2 />
             <div className="cart-page">
                 <div className="breadcrumbs">
                     <div className="grid wide">

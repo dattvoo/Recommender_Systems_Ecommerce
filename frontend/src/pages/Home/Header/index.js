@@ -113,8 +113,8 @@ export const Header = ({ user }) => {
                   <i class="fa-solid fa-chevron-down"></i>
                 </a>
                 <ul className="shop__list">
-                  <li className="shop__item"><a href='#'>Car</a></li>
-                  <li className="shop__item"><a href='#'>Checkout</a></li>
+                  <li className="shop__item" onClick= { () => {navigate("/cart")}}><a href='#'>Car</a></li>
+                  <li className="shop__item" onClick= { () => {navigate("/checkout")}}><a href='#'>Checkout</a></li>
                 </ul>
               </li>
               <li className="menu__item"><a className='menu-item__link' href='#'>Pages</a></li>
