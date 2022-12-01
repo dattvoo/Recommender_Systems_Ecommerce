@@ -138,10 +138,56 @@ export const Header = () => {
               <li className="list-menu-shop__item"><a href="" className="shop__link-item">Denim</a></li>
             </ul>  
           </li>
-          <li className="category__item"><a href="" className="category__link-item">
+          <li className="category__item seller-bar">
+            <a href="" className="category__link-item ">
             Best Selling
-            <i class="fa-solid fa-chevron-right"></i>
-          </a></li>
+            <i class="fa-solid fa-chevron-right"></i>  
+            </a>
+            <ul className="best-seller">
+              <li className="seller-type">
+                <div className="seller-btn">
+                  Shop Kid's
+                </div>
+                <img src={require('../../../general/img/mega-menu1.jpg')} className="seller-img" />
+                <div className="seller-list">
+                  <a href="#" className="seller-item">Kids Toys</a>
+                  <a href="#" className="seller-item">Kids Travel Car</a>
+                  <a href="#" className="seller-item">Kids Color Shape</a>
+                  <a href="#" className="seller-item">Kids Tent</a>
+                </div>
+              </li>
+
+              <li className="seller-type">
+                <div className="seller-btn">
+                  Shop Men's
+                </div>
+                <img src={require('../../../general/img/mega-menu2.jpg')} className="seller-img" />
+                <div className="seller-list">
+                  <a href="#" className="seller-item">Watch</a>
+                  <a href="#" className="seller-item">T-Shirt</a>
+                  <a href="#" className="seller-item">Hoodies</a>
+                  <a href="#" className="seller-item">Formal Pant</a>
+                </div>
+              </li>
+
+              <li className="seller-type">
+                <div className="seller-btn">
+                  Shop Women's
+                </div>
+                <img src={require('../../../general/img/mega-menu3.jpg')} className="seller-img" />
+                <div className="seller-list">
+                  <a href="#" className="seller-item">Ladies Shirt</a>
+                  <a href="#" className="seller-item">Ladies Frog</a>
+                  <a href="#" className="seller-item">Ladies Sun Glass</a>
+                  <a href="#" className="seller-item">Ladies Watch</a>
+                </div>
+              </li>
+
+              
+            </ul>
+          
+          
+          </li>
           <li className="category__item"><a href="" className="category__link-item">Accessories</a></li>
           <li className="category__item"><a href="" className="category__link-item">Top 100 Offer</a></li>
           <li className="category__item"><a href="" className="category__link-item">Sunglass</a></li>
