@@ -96,7 +96,45 @@ export const Header = ({ user }) => {
 
 
       <div className="header__menu-bottom">
+        <div className="header__menu">
+          <div className="header__menu-top">
+            <div className="menu__category">
+              <i class="fa-solid fa-list"></i>
+              <span>CATEGORIES</span>
+            </div>
 
+            <ul className="menu__list">
+              <li className="menu__item"><a className='menu-item__link' href='#'>Home</a></li>
+              <li className="menu__item"><a className='menu-item__link' href='#'>Product</a></li>
+              <li className="menu__item"><a className='menu-item__link' href='#'>Service</a></li>
+              <li className="menu__item item__shop">
+                <a className='menu-item__link' href='#'>
+                  Shop
+                  <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul className="shop__list">
+                  <li className="shop__item"><a href='#'>Car</a></li>
+                  <li className="shop__item"><a href='#'>Checkout</a></li>
+                </ul>
+              </li>
+              <li className="menu__item"><a className='menu-item__link' href='#'>Pages</a></li>
+              <li className="menu__item item__blog">
+                <a className='menu-item__link' href='#'>
+                  Blog
+                  <i class="fa-solid fa-chevron-down"></i>
+                </a>
+                <ul className="blog__list">
+                  <li className="blog__item"><a href='#'>Blog Single Sidebar</a></li>
+                </ul>
+              </li>
+              <li className="menu__item"><a className='menu-item__link' href='#'>Contact Us</a></li>
+            </ul>
+          </div>
+
+          <div className="header__menu-bottom">
+
+          </div>
+        </div>
       </div>
 
       <div className="main-category">
