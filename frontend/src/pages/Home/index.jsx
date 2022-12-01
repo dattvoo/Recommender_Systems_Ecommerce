@@ -15,7 +15,7 @@ const HomePage = () => {
   return (
     <>
       <Header user={user}/>
-      <Content1 />
+      {/* <Content1 /> */}
       <TrendingItem />
       <FromBlog />
       <Content2 />

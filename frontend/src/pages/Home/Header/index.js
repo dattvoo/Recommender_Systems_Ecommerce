@@ -17,6 +17,7 @@ export const Header = ({ user }) => {
     }
   }
   return (
+
     <div className="header">
       <div class="header-top">
         <nav className='header__navbar'>
@@ -94,17 +95,16 @@ export const Header = ({ user }) => {
       </div>
 
 
-        <div className="header__menu-bottom">
+      <div className="header__menu-bottom">
 
-        </div>
       </div>
 
       <div className="main-category">
         <ul className="category__list">
           <li className="category__item menu__shop">
             <a href="" className="category__link-item">
-            New Arrivals
-            <i class="fa-solid fa-chevron-right"></i>
+              New Arrivals
+              <i class="fa-solid fa-chevron-right"></i>
             </a>
             <ul className="list-menu-shop">
               <li className="list-menu-shop__item"><a href="" className="shop__link-item">Accessories</a></li>
@@ -115,12 +115,12 @@ export const Header = ({ user }) => {
               <li className="list-menu-shop__item"><a href="" className="shop__link-item">Ladies</a></li>
               <li className="list-menu-shop__item"><a href="" className="shop__link-item">Westrn Dress</a></li>
               <li className="list-menu-shop__item"><a href="" className="shop__link-item">Denim</a></li>
-            </ul>  
+            </ul>
           </li>
           <li className="category__item seller-bar">
             <a href="" className="category__link-item ">
-            Best Selling
-            <i class="fa-solid fa-chevron-right"></i>  
+              Best Selling
+              <i class="fa-solid fa-chevron-right"></i>
             </a>
             <ul className="best-seller">
               <li className="seller-type">
@@ -162,10 +162,10 @@ export const Header = ({ user }) => {
                 </div>
               </li>
 
-              
+
             </ul>
-          
-          
+
+
           </li>
           <li className="category__item"><a href="" className="category__link-item">Accessories</a></li>
           <li className="category__item"><a href="" className="category__link-item">Top 100 Offer</a></li>
@@ -186,7 +186,7 @@ export const Header = ({ user }) => {
       </div>
 
 
-    </div>
+    </div >
 
   )
 }
