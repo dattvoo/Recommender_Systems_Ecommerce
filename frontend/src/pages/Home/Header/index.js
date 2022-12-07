@@ -88,6 +88,49 @@ export const Header = ({ user }) => {
             <li className="right__item item__cart">
               <a href='#' className='right__item-link'><i class="fa-solid fa-cart-shopping"></i></a>
               <span className='cart__quality'>3</span>
+              <div className="shopping-cart">
+                <div className="shopping-title">
+                  <span>2 ITEMS</span>
+                  <span>VIEW CART</span>
+                </div>
+
+                <ul className="shopping-list">
+                  <li className="shopping-item">
+                    <div className="shopping-item__content">
+                      <p className='shopping-item__name'>Woman Ring</p>
+                      <p className='shopping-item__quality'>1x - $99.00</p>
+                      <div className='shopping-btn__remove'>
+                        <i class="fa-solid fa-x"></i>
+                      </div>
+                    </div>
+                    <div className="shopping-item__img">
+                      <img src={require("../../../general/img/product-1.jpg")} alt="" />
+                    </div>
+                  </li>
+                  <li className="shopping-item">
+                  <div className="shopping-item__content">
+                      <p className='shopping-item__name'>Woman Necklace</p>
+                      <p className='shopping-item__quality'>1x - $35.00</p>
+                      <div className='shopping-btn__remove'>
+                        <i class="fa-solid fa-x"></i>
+                      </div>
+                    </div>
+                    <div className="shopping-item__img">
+                      <img src={require("../../../general/img/product-2.jpg")} alt="" />
+                    </div>
+                  </li>
+                </ul>
+
+                <div className="shopping-bottom">
+                  <div className="shopping-sum">
+                    <span className="sum-title">TOTAL</span>
+                    <span className="sum-price">$134.00</span>
+                  </div>
+                  <div className="btn-shopping">
+                    CHECKOUT
+                  </div>
+                </div>
+              </div>
             </li>
           </ul>
 
