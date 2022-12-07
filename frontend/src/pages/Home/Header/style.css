@@ -95,7 +95,8 @@
     background-color: #fff;
     padding: 0;
     display: none;
-    top: 34px;
+    top: 46px;
+    border-radius: 3px;
 }
 
 .select__item{
@@ -116,7 +117,7 @@
 
 .header__input-search{
     margin: auto;
-    height: 47px;
+    height: 45px;
     width: 400px;
     border: 1px solid rgb(171, 169, 169);
     border-left: none;
@@ -127,12 +128,13 @@
 }
 
 .btn__search{
-    height: 48px;
+    height: 45px;
     width: 60px;
     border-radius: 0 6px 6px 0;
-    border: 1px solid rgb(171, 169, 169);
+    border: none;
     background-color: rgb(88, 88, 88);
     cursor: pointer;
+    transform: translateY(1px);
 }
 
 .btn_icon{
@@ -169,8 +171,98 @@
     border-radius: 50%;
 }
 
+.item__cart::after{
+    position: absolute;
+    content: "";
+    width: 150px;
+    height: 60px;
+    right: 0;
+    top: 29px;
+}
+
+.item__cart:hover .shopping-cart{
+    display: block;
+}
+
+.shopping-cart{
+    width: 310px;
+    padding: 16px;
+    position: absolute;
+    right: 0;
+    top: 188%;
+    display: none;
+    border: 1px solid #bcbcbc;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    z-index: 10;
+}
+
+.shopping-title{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(172, 172, 172);
+    font-weight: 600;
+    padding-bottom: 12px;
+}
+
+.shopping-list{
+}
+
+.shopping-item{
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid rgb(172, 172, 172);
+    padding: 16px 0;
+}
+
+.shopping-item__content{
+    text-align: left;  
+}
+
+.shopping-item__name{
+    font-weight: 500;
+}
+
+.shopping-item__quality{
+    color: #918f8d;
+    padding-bottom: 10px;
+}
+
+.shopping-btn__remove{
+    width:20px;
+    height: 20px;
+    border: 1px solid rgb(172, 172, 172);
+    text-align: center;
+    line-height: 20px;
+    font-size: 14px;
+}
+
+.shopping-bottom{
+    padding-top: 16px;
+}
+
+.shopping-sum{
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    padding-bottom: 18px;
+}
+
+.btn-shopping{
+    height: 44px;
+    width: 100%;
+    background-color: rgb(25, 25, 25);
+    color: #fff;
+    font-weight: 500;
+    line-height: 44px;
+    cursor: pointer;
+}
+
+.btn-shopping:hover{
+    background-color: #f7941d;
+}
+
 .header__menu{
-    padding-top: 50px;
+    padding-top: 40px;
 }
 
 .header__menu-top{
@@ -213,7 +305,7 @@
     color: #fff;
     /* font-size: 18px; */
     text-decoration: none;
-    
+    font-weight: 500;
 }
 
 .menu__item:hover{

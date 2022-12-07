@@ -1,5 +1,6 @@
 
 import { useSelector } from "react-redux";
+import { Banner } from "../../component/banner";
 import { Content2 } from "../../component/content2";
 import { Content5 } from "../../component/content5";
 import { Footer } from "../../component/footer";
@@ -15,13 +16,15 @@ const HomePage = () => {
     <>
       <Header user={user}/>
       {/* <Content1 /> */}
+      <Banner />
       <TrendingItem />
       <FromBlog />
       <Content2 />
-      <Content5/>
+      
       <Content6/>
       <Content7/>
       {/* <Checkout/> */}
+      <Content5/>
       <Footer/>
     </>
   );
