@@ -79,10 +79,10 @@ export const Footer = () => {
 
                             <div className='footer-social__media'>
                                 <ul className='footer__list list-media'>
-                                    <li className='footer__item'><a href='#' className='footer__link'><i class="fa-brands fa-facebook"></i></a></li>
-                                    <li className='footer__item'><a href='#' className='footer__link'><i class="fa-brands fa-twitter"></i></a></li>
-                                    <li className='footer__item'><a href='#' className='footer__link'><i class="fa-brands fa-instagram"></i></a></li>
-                                    <li className='footer__item'><a href='#' className='footer__link'><i class="fa-brands fa-linkedin"></i></a></li>
+                                    <li className='footer__item'><a href='#' className='footer__link'><i className="fa-brands fa-facebook"></i></a></li>
+                                    <li className='footer__item'><a href='#' className='footer__link'><i className="fa-brands fa-twitter"></i></a></li>
+                                    <li className='footer__item'><a href='#' className='footer__link'><i className="fa-brands fa-instagram"></i></a></li>
+                                    <li className='footer__item'><a href='#' className='footer__link'><i className="fa-brands fa-linkedin"></i></a></li>
                                 </ul>
                             </div>
 

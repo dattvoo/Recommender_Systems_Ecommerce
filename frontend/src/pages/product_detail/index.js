@@ -271,7 +271,7 @@ export const Product__Detail = () =>{
                                         <div className="product__quality-title strong">Số lượng: </div>
                                         <div className="product__quality-option">
                                             <button class="btn_quality" id="minus-btn"><i class="fa fa-minus"></i></button>
-                                            <input type="text" class="input-quality" value="1" min="1"/>
+                                            <input type="text" class="input-quality"  min="1"/>
                                             <button class="btn_quality" id="plus-btn"><i class="fa fa-plus"></i></button>      
                                         </div>
                                     </div>

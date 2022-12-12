@@ -1,10 +1,8 @@
-import "./style.css"
+import { Footer } from "../../component/footer"
+import { Header2 } from "../../component/Header2"
 import "../../general/css/grid.css"
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css"
-import { Header } from "../Home/Header"
-import { Footer } from "../../component/footer"
-import { Content1 } from "../Home/Content1"
-import { Header2 } from "../../component/Header2"
+import "./style.css"
 export const Cart = () => {
     return (
         <>
@@ -18,7 +16,7 @@ export const Cart = () => {
                                     <ul className="bread-list">
                                         <li>
                                             <a href="#">Home
-                                                <i class="fa-solid fa-arrow-right"></i>
+                                                <i className="fa-solid fa-arrow-right"></i>
                                             </a>
 
                                         </li>
@@ -44,7 +42,7 @@ export const Cart = () => {
                                             <th className="text-center">Quantity</th>
                                             <th className="text-center">ToTal</th>
                                             <th className="text-center">
-                                                <i class="fa-solid fa-trash"></i>
+                                                <i className="fa-solid fa-trash"></i>
                                             </th>
                                         </tr>
 
@@ -69,14 +67,14 @@ export const Cart = () => {
                                                 <div className="input-group">
                                                     <div className="button-btn minuts">
                                                         <button className="btn btn-primary btn-number" type="button" datatype="minus" data-field="quant[1]" disabled="disabled">
-                                                            <i class="fa-solid fa-minus"></i>
+                                                            <i className="fa-solid fa-minus"></i>
                                                         </button>
                                                     </div>
                                                     <input type="text" className="input-number "
-                                                        data-min={1} data-max={100} value={1} name="quant[1]" />
+                                                        data-min={1} data-max={100} name="quant[1]" />
                                                     <div className="button-btn plus">
                                                         <button className="btn btn-primary btn-number" type="button" datatype="minus" data-field="quant[1]" >
-                                                            <i class="fa-solid fa-plus"></i>
+                                                            <i className="fa-solid fa-plus"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -86,7 +84,7 @@ export const Cart = () => {
                                             </td>
                                             <td className="action">
                                                 <a href="#">
-                                                    <i class="fa-solid fa-trash"></i>
+                                                    <i className="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -110,14 +108,14 @@ export const Cart = () => {
                                                 <div className="input-group">
                                                     <div className="button-btn minuts">
                                                         <button className="btn btn-primary btn-number" type="button" datatype="minus" data-field="quant[1]" disabled="disabled">
-                                                            <i class="fa-solid fa-minus"></i>
+                                                            <i className="fa-solid fa-minus"></i>
                                                         </button>
                                                     </div>
                                                     <input type="text" className="input-number "
-                                                        data-min={1} data-max={100} value={1} name="quant[1]" />
+                                                        data-min={1} data-max={100} name="quant[1]" />
                                                     <div className="button-btn plus">
                                                         <button className="btn btn-primary btn-number" type="button" datatype="minus" data-field="quant[1]" >
-                                                            <i class="fa-solid fa-plus"></i>
+                                                            <i className="fa-solid fa-plus"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -127,7 +125,7 @@ export const Cart = () => {
                                             </td>
                                             <td className="action">
                                                 <a href="#">
-                                                    <i class="fa-solid fa-trash"></i>
+                                                    <i className="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -150,14 +148,14 @@ export const Cart = () => {
                                                 <div className="input-group">
                                                     <div className="button-btn minuts">
                                                         <button className="btn btn-primary btn-number" type="button" datatype="minus" data-field="quant[1]" disabled="disabled">
-                                                            <i class="fa-solid fa-minus"></i>
+                                                            <i className="fa-solid fa-minus"></i>
                                                         </button>
                                                     </div>
                                                     <input type="text" className="input-number "
-                                                        data-min={1} data-max={100} value={1} name="quant[1]" />
+                                                        data-min={1} data-max={100} name="quant[1]" />
                                                     <div className="button-btn plus">
                                                         <button className="btn btn-primary btn-number" type="button" datatype="minus" data-field="quant[1]" >
-                                                            <i class="fa-solid fa-plus"></i>
+                                                            <i className="fa-solid fa-plus"></i>
                                                         </button>
                                                     </div>
                                                 </div>
@@ -167,7 +165,7 @@ export const Cart = () => {
                                             </td>
                                             <td className="action">
                                                 <a href="#">
-                                                    <i class="fa-solid fa-trash"></i>
+                                                    <i className="fa-solid fa-trash"></i>
                                                 </a>
                                             </td>
                                         </tr>
@@ -213,7 +211,7 @@ export const Cart = () => {
                                                         You Save
                                                         <span>$20.00</span>
                                                     </li>
-                                                    <li class="last">
+                                                    <li className="last">
                                                         You Pay
                                                         <span>$310.00</span>
                                                     </li>
