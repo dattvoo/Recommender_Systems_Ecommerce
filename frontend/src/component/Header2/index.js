@@ -50,7 +50,7 @@ export const Header2 = () => {
             </div>
             <div className="header-bottom">
                 <div className="header-with-search">
-                    <div className="header__logo">
+                    <div className="header__logo" onClick = {()=> {navigate("/")}}>
                         <img src={require("../../general/img/logo.png")} className='header__logo-img' />
                         {/* ../../../general/img/logo.png" */}
                     </div>

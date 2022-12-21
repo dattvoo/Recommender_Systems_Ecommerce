@@ -1,8 +1,8 @@
+import { Row, Tabs } from "antd";
+import { SingleItem } from "../../../component/SingleItem/SingleItem";
 import "./style.css";
-import { Col, Row, Tabs } from "antd";
-import { Card } from "antd";
-export const TrendingItem = () => {
-  const { Meta } = Card;
+export const TrendingItem = ({ title, productRecId }) => {
+  console.log("🚀 ~ file: index.js:5 ~ TrendingItem ~ productRecId", productRecId)
   const menu = [
     {
       label: `MAN`,
@@ -29,11 +29,19 @@ export const TrendingItem = () => {
       key: "PRICES",
     },
   ];
+  const productsId = [8650774,
+    9306139,
+    9961521,
+    13238328,
+    10485819,
+    13238336,
+    13238341,
+    13238349]
   return (
     <div className="wrap">
       <div className="container">
         <div className="header">
-          <h1>Trending Item</h1>
+          <h1> {title ? title : "Trending Item"}</h1>
         </div>
         <div className="content">
           <Tabs
@@ -45,143 +53,13 @@ export const TrendingItem = () => {
         </div>
         <div className="list_product">
           <Row gutter={[16, 16]}>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="	https://wpthemesgrid.com/themes/free/eshop/images/products/p1.jpg"
-                  />
-                }
-                className="cart_item"
-              >
-                <Meta title="Women Hot Collection" description="$29.00" />
-              </Card>
-              {/* <div className="add_to_cart">
-                  ADD TO CARD
-              </div> */}
-            </Col>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://wpthemesgrid.com/themes/free/eshop/images/products/p3.jpg"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://wpthemesgrid.com/themes/free/eshop/images/products/p5.jpg"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
-            <Col xl={6} lg={8} style={{ marginBottom: "12px" }}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://wpthemesgrid.com/themes/free/eshop/images/products/p7.jpg"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
-            <Col xl={6} lg={8}>
-              <Card
-                hoverable
-                style={{ width: 240 }}
-                cover={
-                  <img
-                    alt="example"
-                    src="https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png"
-                  />
-                }
-              >
-                <Meta
-                  title="Europe Street beat"
-                  description="www.instagram.com"
-                />
-              </Card>
-            </Col>
+            {
+              productRecId ? (productRecId.map((productId, index) => (
+                <SingleItem productId={productId} key={index} />
+              ))) : (productsId.map((productId, index) => (
+                <SingleItem productId={productId} key={index} />
+              )))
+            }
           </Row>
         </div>
       </div>

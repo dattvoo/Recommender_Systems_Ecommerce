@@ -5,6 +5,7 @@ import '../../../general/fontawesome-free-6.2.0-web/css/all.min.css'
 import { useDispatch } from 'react-redux'
 import Cookies from "js-cookie"
 import { useNavigate } from 'react-router-dom'
+import { HeaderStyle } from "./style"
 export const Header = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -18,7 +19,8 @@ export const Header = ({ user }) => {
   }
   return (
 
-    <div className="header">
+    <HeaderStyle>
+
       <div className="header-top">
         <nav className='header__navbar'>
           <ul className="header__navbar-list">
@@ -108,7 +110,7 @@ export const Header = ({ user }) => {
                     </div>
                   </li>
                   <li className="shopping-item">
-                  <div className="shopping-item__content">
+                    <div className="shopping-item__content">
                       <p className='shopping-item__name'>Woman Necklace</p>
                       <p className='shopping-item__quality'>1x - $35.00</p>
                       <div className='shopping-btn__remove'>
@@ -156,8 +158,8 @@ export const Header = ({ user }) => {
                   <i className="fa-solid fa-chevron-down"></i>
                 </a>
                 <ul className="shop__list">
-                  <li className="shop__item" onClick= { () => {navigate("/cart")}}><a href='#'>Cart</a></li>
-                  <li className="shop__item" onClick= { () => {navigate("/checkout")}}><a href='#'>Checkout</a></li>
+                  <li className="shop__item" onClick={() => { navigate("/cart") }}><a href='#'>Cart</a></li>
+                  <li className="shop__item" onClick={() => { navigate("/checkout") }}><a href='#'>Checkout</a></li>
                 </ul>
               </li>
               <li className="menu__item"><a className='menu-item__link' href='#'>Pages</a></li>
@@ -266,8 +268,8 @@ export const Header = ({ user }) => {
         </div>
       </div>
 
+    </HeaderStyle>
 
-    </div >
 
   )
 }
