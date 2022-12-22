@@ -5,14 +5,6 @@ const { getProductDetail } = require("../controllers/postController");
 
 const router = express.Router();
 
+router.post("/product", getProductDetail);
 
-// router.post("/register", register);
-// router.post("/activate", activateAccount);
-// router.post("/sendVerification", authUser, sendVerification);
-router.get("/product", getProductDetail);
-// router.post("/auth", authUser, auth);
-// router.post("/findUser", findUser);
-// router.post("/sendResetCodeVerification", senResetPasswordCode);
-// router.post("/validateResetCode", validateResetCode);
-// router.post("/changeNewPassword", changeNewPassword);
 module.exports = router;
