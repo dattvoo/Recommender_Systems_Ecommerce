@@ -2,7 +2,8 @@ import { Card, Col } from "antd";
 import Meta from "antd/es/card/Meta";
 import { Link } from "react-router-dom";
 
-export const SingleItem = ({productId}) => {
+export const SingleItem = ({ productId }) => {
+ 
   return (
     <Col xl={6} lg={8}>
       <Link to={`/product/${productId}`} autoSave="false">

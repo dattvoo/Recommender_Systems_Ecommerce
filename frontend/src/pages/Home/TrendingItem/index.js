@@ -2,7 +2,6 @@ import { Row, Tabs } from "antd";
 import { SingleItem } from "../../../component/SingleItem/SingleItem";
 import "./style.css";
 export const TrendingItem = ({ title, productRecId }) => {
-  console.log("🚀 ~ file: index.js:5 ~ TrendingItem ~ productRecId", productRecId)
   const menu = [
     {
       label: `MAN`,
