@@ -1,20 +1,22 @@
-import React, { useEffect, useState } from "react";
-import "./style.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { CartItem } from "../../component/CartItem";
+import { Content5 } from "../../component/content5";
+import { Footer } from "../../component/footer";
 import "../../general/css/grid.css";
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css";
-import { Footer } from "../../component/footer";
-import { Content5 } from "../../component/content5";
-import { useParams } from "react-router-dom";
-import axios from "axios";
 import { TrendingItem } from "../Home/TrendingItem";
+import "./style.css";
 
 export const Product__Detail = () => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [product, setProduct] = useState();
   const [quantity, setQuantity] = useState(1);
-  console.log("🚀 ~ file: index.js:16 ~ quantity", quantity);
-
+  const dispatch = useDispatch();
+  const [cart, setCart] = useState([]);
   const getRecommendProduct = async () => {
     try {
       const { data } = await axios.get(`http://127.0.0.1:8000/product/${id}`);
@@ -26,15 +28,11 @@ export const Product__Detail = () => {
 
   const getProduct = async () => {
     try {
-      console.log("In getProduct line 26");
       const { data } = await axios.post("http://localhost:8000/product", {
         product_id: id,
       });
-      console.log("ID:", id);
       if (data) {
         setProduct(data);
-        console.log("In setProduct line 32");
-        console.log("Data product", product);
       }
     } catch (error) {
       console.log(error);
@@ -44,10 +42,34 @@ export const Product__Detail = () => {
   useEffect(() => {
     getProduct();
     getRecommendProduct();
-    console.log("In UseEffec");
     window.scrollTo(0, 0);
   }, [id]);
+  const hanldeAddToCart = (product) => {
+    // Update cart item quantity if already in cart
+    if (cart.some((item) => item?.id === product?.id)) {
+      setCart((cart) =>
+        cart.map((item) =>
+          item?.id === product?.id
+            ? {
+                ...item,
+                quantity: item.quantity + quantity,
+              }
+            : item
+        )
+      );
+      return;
+    }
 
+    // Add to cart
+    setCart((cart) => [
+      ...cart,
+      { ...product, quantity: quantity }, // <-- initial amount 1
+    ]);
+  };
+
+  useEffect(() => {
+    dispatch({ type: "ADD_PRODUCT_TO_CART", payload: cart });
+  }, [cart]);
   return (
     <div className="product-detail">
       <div className="header__checkout">
@@ -147,54 +169,8 @@ export const Product__Detail = () => {
                   <a href="#" className="right__item-link">
                     <i class="fa-solid fa-cart-shopping"></i>
                   </a>
-                  <span className="cart__quality">3</span>
-                  <div className="shopping-cart">
-                    <div className="shopping-title">
-                      <span>2 ITEMS</span>
-                      <span>VIEW CART</span>
-                    </div>
-
-                    <ul className="shopping-list">
-                      <li className="shopping-item">
-                        <div className="shopping-item__content">
-                          <p className="shopping-item__name">Woman Ring</p>
-                          <p className="shopping-item__quality">1x - $99.00</p>
-                          <div className="shopping-btn__remove">
-                            <i className="fa-solid fa-x"></i>
-                          </div>
-                        </div>
-                        <div className="shopping-item__img">
-                          <img
-                            src={require("../../general/img/product-1.jpg")}
-                            alt=""
-                          />
-                        </div>
-                      </li>
-                      <li className="shopping-item">
-                        <div className="shopping-item__content">
-                          <p className="shopping-item__name">Woman Necklace</p>
-                          <p className="shopping-item__quality">1x - $35.00</p>
-                          <div className="shopping-btn__remove">
-                            <i className="fa-solid fa-x"></i>
-                          </div>
-                        </div>
-                        <div className="shopping-item__img">
-                          <img
-                            src={require("../../general/img/product-2.jpg")}
-                            alt=""
-                          />
-                        </div>
-                      </li>
-                    </ul>
-
-                    <div className="shopping-bottom">
-                      <div className="shopping-sum">
-                        <span className="sum-title">TOTAL</span>
-                        <span className="sum-price">$134.00</span>
-                      </div>
-                      <div className="btn-shopping">CHECKOUT</div>
-                    </div>
-                  </div>
+                  <span className="cart__quality">{cart.length}</span>
+                  <CartItem />
                 </li>
               </ul>
             </div>
@@ -422,7 +398,7 @@ export const Product__Detail = () => {
                             ? "soldout"
                             : "availability"
                         }`}
-                        onClick={() => console.log("asdasdasdasdasd")}
+                        onClick={() => hanldeAddToCart(product)}
                         disabled={product?.status === "Sold Out" ? true : false}
                       >
                         Add To Card

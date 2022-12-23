@@ -8,7 +8,6 @@ import { Footer } from '../footer'
 export const Layout = (props) => {
     // console.log(props.children.props.children[0].props.path);
     const { pathname } = useLocation();
-    console.log("🚀 ~ file: index.js ~ line 10 ~ Layout ~ pathname", pathname)
     return (
         <>
             {pathname === "/login" ? <Login /> : (

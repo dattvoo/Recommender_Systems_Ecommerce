@@ -1,0 +1,11 @@
+.shopping-item{ 
+    height: 100px;
+}
+.shopping-item__img {
+    width: 100px;
+    height: 50px;
+}
+.shopping-item__img img{
+    width: 100%;
+    height: 70px;
+}
