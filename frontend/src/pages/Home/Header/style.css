@@ -180,20 +180,21 @@
     top: 29px;
 }
 
-.item__cart:hover .shopping-cart{
+.item__cart:hover .header-shopping-cart{
     display: block;
 }
 
-.shopping-cart{
+.header-shopping-cart{
     /* width: 310px; */
     padding: 16px;
     /* position: absolute; */
     right: 0;
-    /* top: 188%; */
+    top: 188%;
     /* display: none; */
     border: 1px solid #bcbcbc;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    z-index: 10;
+    z-index: 100;
+    background-color: #fff;
 }
 
 .shopping-title{
