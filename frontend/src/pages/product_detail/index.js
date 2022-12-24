@@ -172,6 +172,7 @@ export const Product__Detail = () => {
                   <span className="cart__quality">{cart.length}</span>
                   <CartItem />
                 </li>
+                
               </ul>
             </div>
           </div>
