@@ -4,6 +4,7 @@ import "../../general/css/grid.css"
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css"
 import { Footer } from '../../component/footer'
 import { Content5 } from '../../component/content5'
+import { CartItem } from '../../component/CartItem'
 
 export const Checkout = () =>{
     return(
@@ -79,7 +80,7 @@ export const Checkout = () =>{
                             <li className="right__item item__cart">
                             <a href='#' className='right__item-link'><i class="fa-solid fa-cart-shopping"></i></a>
                             <span className='cart__quality'>3</span>
-                            <div className="header-shopping-cart">
+                            {/* <div className="header-shopping-cart">
                                 <div className="shopping-title">
                                 <span>2 ITEMS</span>
                                 <span>VIEW CART</span>
@@ -121,8 +122,9 @@ export const Checkout = () =>{
                                     CHECKOUT
                                 </div>
                                 </div>
-                            </div>
+                            </div> */}
                             </li>
+                            <CartItem />
                         </ul>
 
                     </div>

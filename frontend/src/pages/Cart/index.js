@@ -1,3 +1,4 @@
+import { CartItem } from "../../component/CartItem"
 import { Footer } from "../../component/footer"
 import { Header2 } from "../../component/Header2"
 import "../../general/css/grid.css"
@@ -77,7 +78,7 @@ export const Cart = () => {
                             <li className="right__item item__cart">
                             <a href='#' className='right__item-link'><i class="fa-solid fa-cart-shopping"></i></a>
                             <span className='cart__quality'>3</span>
-                            <div className="header-shopping-cart">
+                            {/* <div className="header-shopping-cart">
                                 <div className="shopping-title">
                                 <span>2 ITEMS</span>
                                 <span>VIEW CART</span>
@@ -119,7 +120,8 @@ export const Cart = () => {
                                     CHECKOUT
                                 </div>
                                 </div>
-                            </div>
+                            </div> */}
+                            <CartItem />
                             </li>
                         </ul>
 
