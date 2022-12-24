@@ -9,3 +9,6 @@
     width: 100%;
     height: 70px;
 }
+.item__cart:hover .header-shopping-cart{
+    display: block;
+}

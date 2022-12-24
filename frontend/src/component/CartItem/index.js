@@ -12,7 +12,7 @@ export const CartItem = () => {
     console.log("🚀 ~ file: index.js:8 ~ CartItem ~ total", total)
     return (
         <>
-            <div className="shopping-cart">
+            <div className="header-shopping-cart">
                 <div className="shopping-title">
                     <span>{cartItem?.length} ITEMS</span>
                     <span>VIEW CART</span>
