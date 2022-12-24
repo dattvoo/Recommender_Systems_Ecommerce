@@ -90,7 +90,7 @@ export const Header = ({ user }) => {
             <li className="right__item item__cart">
               <a href='#' className='right__item-link'><i className="fa-solid fa-cart-shopping"></i></a>
               <span className='cart__quality'>3</span>
-              <div className="shopping-cart">
+              <div className="header-shopping-cart">
                 <div className="shopping-title">
                   <span>2 ITEMS</span>
                   <span>VIEW CART</span>
