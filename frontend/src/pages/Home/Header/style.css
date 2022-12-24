@@ -152,8 +152,8 @@
 
 
 .right__item-link i{
-    color: #333;
     font-size: 24px;
+    color: #f7941d;
 }
 
 .item__cart{
@@ -165,10 +165,11 @@
     content: "";
     width: 22px;
     height: 22px;
-    background-color: #504f4e;
     right: -1px;
     top: -5px;
     border-radius: 50%;
+    color: #fff;
+    background-color: #f7941d;
 }
 
 .item__cart::after{
