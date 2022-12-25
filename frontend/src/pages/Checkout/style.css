@@ -136,7 +136,8 @@
   width: 60px;
   border-radius: 0 6px 6px 0;
   border: none;
-  background-color: rgb(88, 88, 88);
+  background-color: #f7941d;
+  color: #fff;
   cursor: pointer;
   transform: translateY(1px);
 }
@@ -155,7 +156,7 @@
 }
 
 .right__item-link i {
-  color: #333;
+  color: #f7941d;
   font-size: 24px;
 }
 
@@ -168,11 +169,12 @@
   content: "";
   width: 22px;
   height: 22px;
-  background-color: #504f4e;
   right: -1px;
   top: -5px;
   border-radius: 50%;
   text-align: center;
+  color: #fff;
+  background-color: #f7941d;
 }
 
 .item__cart::after {

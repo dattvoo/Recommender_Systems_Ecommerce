@@ -132,7 +132,8 @@ export const HeaderStyle = styled.div`
     width: 60px;
     border-radius: 0 6px 6px 0;
     border: none;
-    background-color: rgb(88, 88, 88);
+    color: #fff;
+    background-color: #f7941d;
     cursor: pointer;
     transform: translateY(1px);
   }
@@ -151,7 +152,7 @@ export const HeaderStyle = styled.div`
   }
 
   .right__item-link i {
-    color: #333;
+    color: #f7941d;
     font-size: 24px;
   }
 
@@ -164,10 +165,11 @@ export const HeaderStyle = styled.div`
     content: "";
     width: 22px;
     height: 22px;
-    background-color: #504f4e;
     right: -1px;
     top: -5px;
     border-radius: 50%;
+    color: #fff;
+    background-color: #f7941d;
   }
 
   .item__cart::after {
@@ -290,7 +292,7 @@ export const HeaderStyle = styled.div`
     display: flex;
     height: 100%;
     line-height: 60px;
-    margin: 0 auto;
+    margin-left: 0;
   }
 
   .menu__item {

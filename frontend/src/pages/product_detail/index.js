@@ -270,7 +270,7 @@ export const Product__Detail = () => {
       <section className="product-detail section">
         <div className="grid wide">
           <div className="row">
-            <div className="col l-7 m-12 c-12">
+            <div className="col l-5 m-12 c-12">
               <div className="product__left">
                 <div className="product__left-main">
                   <img
@@ -312,7 +312,7 @@ export const Product__Detail = () => {
                 </ul>
               </div>
             </div>
-            <div className="col l-5 m-12 c-12">
+            <div className="col l-7 m-12 c-12">
               <div className="product__right">
                 <div className="product__right-title">
                   <h2 className="product__name">Woman Ring</h2>
@@ -392,7 +392,7 @@ export const Product__Detail = () => {
 
                 <div className="product__btn-add">
                   <div className="row">
-                    <div className="col l-9">
+                    <div className="col l-6">
                       <button
                         className={`btn btn__add ${product?.status === "Sold Out"
                             ? "soldout"
