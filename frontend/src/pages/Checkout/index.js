@@ -48,7 +48,7 @@ export const Checkout = () =>{
                     <div className="header-bottom">
                         <div className="header-with-search">
                         <div className="header__logo">
-                            <img src={require("../../general/img/logo.png")} className='header__logo-img' />
+                            <img alt="photo" src={require("../../general/img/logo.png")} className='header__logo-img' />
                         </div>
 
                         <div className="header__search">
@@ -96,7 +96,7 @@ export const Checkout = () =>{
                                     </div>
                                     </div>
                                     <div className="shopping-item__img">
-                                    <img src={require("../../general/img/product-1.jpg")} alt="" />
+                                    <img alt="photo" src={require("../../general/img/product-1.jpg")} alt="" />
                                     </div>
                                 </li>
                                 <li className="shopping-item">
@@ -108,7 +108,7 @@ export const Checkout = () =>{
                                     </div>
                                     </div>
                                     <div className="shopping-item__img">
-                                    <img src={require("../../general/img/product-2.jpg")} alt="" />
+                                    <img alt="photo" src={require("../../general/img/product-2.jpg")} alt="" />
                                     </div>
                                 </li>
                                 </ul>
@@ -364,7 +364,7 @@ export const Checkout = () =>{
                                 </div>
                                 <div className="single-widget">                          
                                     <div className="content">
-                                        <img src={require("../../general/img/payment.png")} alt="" />
+                                        <img alt="photo" src={require("../../general/img/payment.png")}  />
                                     </div>
                                 </div>
                                 <div className="single-widget">

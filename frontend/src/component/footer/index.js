@@ -15,7 +15,7 @@ export const Footer = () => {
                         <div className='footer-one'>
                             <div className='footer-logo'>
 
-                                <img src={require("../../general/img/logo2.png")} className='footer-logo-img'/>
+                                <img alt="photo" src={require("../../general/img/logo2.png")} className='footer-logo-img'/>
 
                             </div>
 
@@ -100,7 +100,7 @@ export const Footer = () => {
 
                     <div className='footer-payment-icon l-6 m-12 c-12'>
 
-                        <img className='footer-payment-img' src={require("../../general/img/payments.png")} />
+                        <img alt="photo" className='footer-payment-img' src={require("../../general/img/payments.png")} />
 
                     </div>
                 </div>

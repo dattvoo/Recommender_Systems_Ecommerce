@@ -14,13 +14,10 @@ export const Login = () => {
   const navigate = useNavigate();
 
   const onFinish = async (values) => {
-   
-
     try {
       // setLoading(true);
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/login`,
-
         values,
 
       );
@@ -66,7 +63,7 @@ export const Login = () => {
           </Form.Item>
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type="primary" htmlType="submit" className="btn btn-submit">
-              Submit
+              LOGIN
             </Button>
           </Form.Item>
         </FormStyle>

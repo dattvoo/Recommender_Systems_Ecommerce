@@ -12,12 +12,16 @@ export const Wrapper = styled.div`
 `;
 
 export const WrapForm = styled.div`
-
+  position: fixed;
+  top: 35%;
+  left: 25%;
+  width: 500px;
+  min-height: 500px;
 `;
 
 export const FormStyle = styled(AntForm)`
-  width: 500px;
-  height: 500px;
-  margin: 0 auto;
-  padding-top: 40vh;
+  /* width: 500px; */
+  /* height: 500px; */
+  /* margin: 0 auto; */
+  /* padding-top: 40vh; */
 `;
