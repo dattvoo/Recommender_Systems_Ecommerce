@@ -6,7 +6,6 @@ import { Content5 } from '../content5'
 import { Footer } from '../footer'
 
 export const Layout = (props) => {
-    // console.log(props.children.props.children[0].props.path);
     const { pathname } = useLocation();
     return (
         <>

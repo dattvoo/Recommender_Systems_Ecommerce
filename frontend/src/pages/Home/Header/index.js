@@ -2,7 +2,7 @@ import React from 'react'
 import "./style.css"
 import "../../../general/css/grid.css"
 import '../../../general/fontawesome-free-6.2.0-web/css/all.min.css'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "js-cookie"
 import { useNavigate } from 'react-router-dom'
 import { HeaderStyle } from "./style"
@@ -18,6 +18,9 @@ export const Header = ({ user }) => {
       navigate("/login");
     }
   }
+  const productData = useSelector(state => state.product)
+
+
   return (
 
     <HeaderStyle>
@@ -90,50 +93,7 @@ export const Header = ({ user }) => {
 
             <li className="right__item item__cart">
               <a href='#' className='right__item-link'><i className="fa-solid fa-cart-shopping"></i></a>
-              <span className='cart__quality'>3</span>
-              {/* <div className="header-shopping-cart">
-                <div className="shopping-title">
-                  <span>2 ITEMS</span>
-                  <span>VIEW CART</span>
-                </div>
-
-                <ul className="shopping-list">
-                  <li className="shopping-item">
-                    <div className="shopping-item__content">
-                      <p className='shopping-item__name'>Woman Ring</p>
-                      <p className='shopping-item__quality'>1x - $99.00</p>
-                      <div className='shopping-btn__remove'>
-                        <i className="fa-solid fa-x"></i>
-                      </div>
-                    </div>
-                    <div className="shopping-item__img">
-                      <img src={require("../../../general/img/product-1.jpg")} alt="" />
-                    </div>
-                  </li>
-                  <li className="shopping-item">
-                    <div className="shopping-item__content">
-                      <p className='shopping-item__name'>Woman Necklace</p>
-                      <p className='shopping-item__quality'>1x - $35.00</p>
-                      <div className='shopping-btn__remove'>
-                        <i className="fa-solid fa-x"></i>
-                      </div>
-                    </div>
-                    <div className="shopping-item__img">
-                      <img src={require("../../../general/img/product-2.jpg")} alt="" />
-                    </div>
-                  </li>
-                </ul>
-
-                <div className="shopping-bottom">
-                  <div className="shopping-sum">
-                    <span className="sum-title">TOTAL</span>
-                    <span className="sum-price">$134.00</span>
-                  </div>
-                  <div className="btn-shopping">
-                    CHECKOUT
-                  </div>
-                </div>
-              </div> */}
+              <span className='cart__quality'>{productData.length}</span>
               <CartItem />
             </li>
           </ul>

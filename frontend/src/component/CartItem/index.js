@@ -4,12 +4,10 @@ import "./style.css"
 export const CartItem = () => {
 
     const cartItem = useSelector(state => state.product);
-    console.log("🚀 ~ file: index.js:6 ~ CartItem ~ cartItem", cartItem)
     let total = 0;
     for (let i = 0; i < cartItem.length; i++) {
         total += cartItem[i].quantity * cartItem[i].price
     }
-    console.log("🚀 ~ file: index.js:8 ~ CartItem ~ total", total)
     return (
         <>
             <div className="header-shopping-cart">

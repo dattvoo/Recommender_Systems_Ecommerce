@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { CartItem } from "../../component/CartItem";
 import { Content5 } from "../../component/content5";
 import { Footer } from "../../component/footer";
@@ -25,7 +25,7 @@ export const Product__Detail = () => {
       console.log(error);
     }
   };
-
+  const navigate = useNavigate();
   const getProduct = async () => {
     try {
       const { data } = await axios.post("http://localhost:8000/product", {
@@ -51,9 +51,9 @@ export const Product__Detail = () => {
         cart.map((item) =>
           item?.id === product?.id
             ? {
-                ...item,
-                quantity: item.quantity + quantity,
-              }
+              ...item,
+              quantity: item.quantity + quantity,
+            }
             : item
         )
       );
@@ -374,7 +374,7 @@ export const Product__Detail = () => {
                         type="text"
                         class="input-quality"
                         value={quantity}
-                        onChange={() => console.log("asdasdasd")}
+                        onChange={() => {}}
                         min={1}
                       />
                       <button
@@ -394,11 +394,10 @@ export const Product__Detail = () => {
                   <div className="row">
                     <div className="col l-9">
                       <button
-                        className={`btn btn__add ${
-                          product?.status === "Sold Out"
+                        className={`btn btn__add ${product?.status === "Sold Out"
                             ? "soldout"
                             : "availability"
-                        }`}
+                          }`}
                         onClick={() => hanldeAddToCart(product)}
                         disabled={product?.status === "Sold Out" ? true : false}
                       >
@@ -413,8 +412,8 @@ export const Product__Detail = () => {
                   </div>
                 </div>
 
-                <div className="product__buy">
-                  <div className="btn btn__buy">Buy Now</div>
+                <div className="product__buy" onClick={() => navigate("/cart")}>
+                  <div className="btn btn__buy" >Buy Now</div>
                 </div>
 
                 <div className="product__info">
