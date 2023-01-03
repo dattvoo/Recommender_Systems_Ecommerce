@@ -10,9 +10,10 @@ import { Checkout } from './pages/Checkout';
 import { Product__Detail } from './pages/product_detail';
 function App() {
   const user = useSelector((state) => state.user);
-
+  
   return (
     <div className="App">
+       
       <Routes>
         <Route element={<LoggedInRoutes />}>
           <Route path='/homepage' element={<HomePage />} />

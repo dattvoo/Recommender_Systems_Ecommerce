@@ -7,6 +7,7 @@ import { Content5 } from "../../component/content5";
 import { Footer } from "../../component/footer";
 import "../../general/css/grid.css";
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css";
+import { Header } from "../Home/Header";
 import { TrendingItem } from "../Home/TrendingItem";
 import "./style.css";
 
@@ -72,7 +73,7 @@ export const Product__Detail = () => {
   }, [cart]);
   return (
     <div className="product-detail">
-      <div className="header__checkout">
+      {/* <div className="header__checkout">
         <div className="header_12">
           <div className="header-top">
             <nav className="header__navbar">
@@ -172,7 +173,7 @@ export const Product__Detail = () => {
                   <span className="cart__quality">{cart.length}</span>
                   <CartItem />
                 </li>
-                
+
               </ul>
             </div>
           </div>
@@ -238,8 +239,8 @@ export const Product__Detail = () => {
             </div>
           </div>
         </div>
-      </div>
-
+      </div> */}
+      <Header />
       <div className="breadcrumbs">
         <div className="grid wide">
           <div className="row">
@@ -374,7 +375,7 @@ export const Product__Detail = () => {
                         type="text"
                         class="input-quality"
                         value={quantity}
-                        onChange={() => {}}
+                        onChange={() => { }}
                         min={1}
                       />
                       <button
@@ -395,8 +396,8 @@ export const Product__Detail = () => {
                     <div className="col l-6">
                       <button
                         className={`btn btn__add ${product?.status === "Sold Out"
-                            ? "soldout"
-                            : "availability"
+                          ? "soldout"
+                          : "availability"
                           }`}
                         onClick={() => hanldeAddToCart(product)}
                         disabled={product?.status === "Sold Out" ? true : false}

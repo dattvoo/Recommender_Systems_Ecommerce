@@ -1,12 +1,15 @@
-import React from 'react'
 import "./style.css"
 import "../../../general/css/grid.css"
 import '../../../general/fontawesome-free-6.2.0-web/css/all.min.css'
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "js-cookie"
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import { HeaderStyle } from "./style"
 import { CartItem } from '../../../component/CartItem'
+import { MainCategory } from './MainCategory'
+import { Link } from "react-router-dom"
+
+
 export const Header = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,7 +22,8 @@ export const Header = ({ user }) => {
     }
   }
   const productData = useSelector(state => state.product)
-
+  const { id } = useParams();
+  console.log("🚀 ~ file: index.js:25 ~ Header ~ params", id)
 
   return (
 
@@ -111,7 +115,7 @@ export const Header = ({ user }) => {
             </div>
 
             <ul className="menu__list">
-              <li className="menu__item"><a className='menu-item__link' href='#'>Home</a></li>
+              <li className="menu__item"><Link className='menu-item__link' to="/">Home</Link></li>
               <li className="menu__item"><a className='menu-item__link' href='#'>Product</a></li>
               <li className="menu__item"><a className='menu-item__link' href='#'>Service</a></li>
               <li className="menu__item item__shop">
@@ -119,7 +123,7 @@ export const Header = ({ user }) => {
                   Shop
                   <i className="fa-solid fa-chevron-down"></i>
                 </a>
-                <ul className="shop__list">
+                <ul className="sub__list">
                   <li className="shop__item" onClick={() => { navigate("/cart") }}><a href='#'>Cart</a></li>
                   <li className="shop__item" onClick={() => { navigate("/checkout") }}><a href='#'>Checkout</a></li>
                 </ul>
@@ -144,91 +148,7 @@ export const Header = ({ user }) => {
         </div>
       </div>
 
-      <div className="main-category">
-        <ul className="category__list">
-          <li className="category__item menu__shop">
-            <a href="" className="category__link-item">
-              New Arrivals
-              <i className="fa-solid fa-chevron-right"></i>
-            </a>
-            <ul className="list-menu-shop">
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Accessories</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Top 100 Offer</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Sunglass</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Watch</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Man's Product</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Ladies</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Westrn Dress</a></li>
-              <li className="list-menu-shop__item"><a href="" className="shop__link-item">Denim</a></li>
-            </ul>
-          </li>
-          <li className="category__item seller-bar">
-            <a href="" className="category__link-item ">
-              Best Selling
-              <i className="fa-solid fa-chevron-right"></i>
-            </a>
-            <ul className="best-seller">
-              <li className="seller-type">
-                <div className="seller-btn">
-                  Shop Kid's
-                </div>
-                <img src={require('../../../general/img/mega-menu1.jpg')} className="seller-img" />
-                <div className="seller-list">
-                  <a href="#" className="seller-item">Kids Toys</a>
-                  <a href="#" className="seller-item">Kids Travel Car</a>
-                  <a href="#" className="seller-item">Kids Color Shape</a>
-                  <a href="#" className="seller-item">Kids Tent</a>
-                </div>
-              </li>
-
-              <li className="seller-type">
-                <div className="seller-btn">
-                  Shop Men's
-                </div>
-                <img src={require('../../../general/img/mega-menu2.jpg')} className="seller-img" />
-                <div className="seller-list">
-                  <a href="#" className="seller-item">Watch</a>
-                  <a href="#" className="seller-item">T-Shirt</a>
-                  <a href="#" className="seller-item">Hoodies</a>
-                  <a href="#" className="seller-item">Formal Pant</a>
-                </div>
-              </li>
-
-              <li className="seller-type">
-                <div className="seller-btn">
-                  Shop Women's
-                </div>
-                <img src={require('../../../general/img/mega-menu3.jpg')} className="seller-img" />
-                <div className="seller-list">
-                  <a href="#" className="seller-item">Ladies Shirt</a>
-                  <a href="#" className="seller-item">Ladies Frog</a>
-                  <a href="#" className="seller-item">Ladies Sun Glass</a>
-                  <a href="#" className="seller-item">Ladies Watch</a>
-                </div>
-              </li>
-
-
-            </ul>
-
-
-          </li>
-          <li className="category__item"><a href="" className="category__link-item">Accessories</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Top 100 Offer</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Sunglass</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Watch</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Man's Product</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Ladies</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Westrn Dress</a></li>
-          <li className="category__item"><a href="" className="category__link-item">Denim</a></li>
-        </ul>
-
-        <div className="category__promote">
-          <h4>UP TO 50% OFF</h4>
-          <h5>Shirt For Man</h5>
-          <p>Maboriosam in a nesciung eget magnae dapibus disting tloctio in the find it pereri odiy maboriosm.</p>
-          <div className="btn__shop"><a href="#" className="btn__link">SHOP NOW</a></div>
-        </div>
-      </div>
+      {!id && <MainCategory />}
 
     </HeaderStyle>
 

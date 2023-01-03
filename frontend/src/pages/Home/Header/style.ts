@@ -297,10 +297,11 @@ export const HeaderStyle = styled.div`
 
   .menu__item {
     padding: 0 6px;
-    width: 95px;
+    /* width: 95px; */
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
   }
 
   .menu-item__link {
@@ -321,7 +322,7 @@ export const HeaderStyle = styled.div`
 
   .item__blog,
   .item__shop {
-    position: relative;
+    /* position: relative; */
   }
 
   .best-seller {
@@ -392,7 +393,7 @@ export const HeaderStyle = styled.div`
     transform: scale(1.1);
   }
 
-  .shop__list {
+  .sub__list {
     position: absolute;
     list-style: none;
     border: 1px solid #918f8d;
@@ -402,12 +403,13 @@ export const HeaderStyle = styled.div`
     display: none;
     top: 64px;
     left: 0;
+    border-radius: 4px;
   }
 
   .shop__item {
-    padding: 4px 0 4px 12px;
+    padding: 4px 0 0px 12px;
     text-align: left;
-    width: 120px;
+    /* width: 120px; */
     line-height: 25px;
   }
 
@@ -434,8 +436,9 @@ export const HeaderStyle = styled.div`
     left: -1px;
   }
 
-  .item__shop:hover .shop__list {
+  .item__shop:hover .sub__list {
     display: block;
+    min-width: 150px;
   }
 
   .blog__item {
@@ -455,6 +458,7 @@ export const HeaderStyle = styled.div`
     display: none;
     top: 64px;
     left: 0;
+    border-radius: 4px;
   }
 
   .item__blog:hover .blog__list {
@@ -462,7 +466,7 @@ export const HeaderStyle = styled.div`
   }
 
   .main-category {
-    background-image: url(../../../general/img/slider-image2.jpg);
+    /* background-image: url("https://images.asos-media.com/products/ugg-classic-mini-boots-in-black-suede/9961521-2"); */
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -496,9 +500,9 @@ export const HeaderStyle = styled.div`
   }
 
   .category__promote {
-    max-width: 300px;
-    padding: 60px 0 0 30px;
-    text-align: left;
+    /* max-width: 300px; */
+    padding: 0px 0 0 30px;
+    /* text-align: left; */
   }
 
   .category__promote h4 {
