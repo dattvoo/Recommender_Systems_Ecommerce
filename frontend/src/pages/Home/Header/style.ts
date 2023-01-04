@@ -566,6 +566,10 @@ export const HeaderStyle = styled.div`
     text-decoration: none;
     color: #333;
   }
+  .img-nodata{
+    object-fit: cover;
+    object-position: center;
+  }
 `;
 
 export const WrapForm = styled.div``;

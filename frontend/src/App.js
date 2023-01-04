@@ -1,25 +1,59 @@
+import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import HomePage from "./pages/Home";
-import { Routes, Route } from 'react-router-dom'
-import { Login } from './pages/Login/index.js';
-import { LoggedInRoutes } from './router/LoggedInRoutes';
-import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
-import { useSelector } from 'react-redux';
 import { Cart } from './pages/Cart';
 import { Checkout } from './pages/Checkout';
+import HomePage from "./pages/Home";
+import { Login } from './pages/Login/index.js';
 import { Product__Detail } from './pages/product_detail';
+import { LoggedInRoutes } from './router/LoggedInRoutes';
+import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
 function App() {
-  const user = useSelector((state) => state.user);
-  
+  const dispatch = useDispatch();
+
+  const [cart, setCart] = useState([]);
+  const hanldeAddToCart = (product, quantity) => {
+    // Update cart item quantity if already in cart
+    if (cart.some((item) => item?.id === product?.id)) {
+      setCart((cart) =>
+        cart.map((item) =>
+          item?.id === product?.id
+            ? {
+              ...item,
+              quantity: item.quantity + quantity,
+            }
+            : item
+        )
+      );
+      return;
+    }
+
+    // Add to cart
+    setCart((cart) => [
+      ...cart,
+      { ...product, quantity: quantity }, // <-- initial amount 1
+    ]);
+  };
+
+  useEffect(() => {
+    console.log("Dispathed");
+    console.log("🚀 ~ file: index.js:21 ~ cart", cart);
+    dispatch({ type: "ADD_PRODUCT_TO_CART", payload: cart });
+
+  }, [cart]);
+
+
+
   return (
     <div className="App">
-       
+
       <Routes>
         <Route element={<LoggedInRoutes />}>
           <Route path='/homepage' element={<HomePage />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/product/:id' element={<Product__Detail />} />
+          <Route path='/product/:id' element={<Product__Detail hanldeAddToCart={hanldeAddToCart} />} />
           <Route path='/product' element={<HomePage />} />
           <Route path='/' element={<HomePage />} />
         </Route>

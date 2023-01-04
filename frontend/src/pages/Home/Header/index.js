@@ -3,7 +3,7 @@ import "../../../general/css/grid.css"
 import '../../../general/fontawesome-free-6.2.0-web/css/all.min.css'
 import { useDispatch, useSelector } from 'react-redux'
 import Cookies from "js-cookie"
-import { useNavigate, useParams } from 'react-router-dom'
+import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { HeaderStyle } from "./style"
 import { CartItem } from '../../../component/CartItem'
 import { MainCategory } from './MainCategory'
@@ -13,6 +13,10 @@ import { Link } from "react-router-dom"
 export const Header = ({ user }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const productData = useSelector(state => state.product)
+  const { id } = useParams();
+  const { pathname } = useLocation();
   const handleInOut = () => {
     if (user) {
       Cookies.set("user", null);
@@ -21,9 +25,6 @@ export const Header = ({ user }) => {
       navigate("/login");
     }
   }
-  const productData = useSelector(state => state.product)
-  const { id } = useParams();
-  console.log("🚀 ~ file: index.js:25 ~ Header ~ params", id)
 
   return (
 
@@ -148,7 +149,7 @@ export const Header = ({ user }) => {
         </div>
       </div>
 
-      {!id && <MainCategory />}
+      {pathname === "/" && <MainCategory />}
 
     </HeaderStyle>
 

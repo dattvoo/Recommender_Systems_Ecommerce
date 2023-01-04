@@ -4,6 +4,7 @@ import { CartItem } from "../../component/CartItem"
 import { Footer } from "../../component/footer"
 import "../../general/css/grid.css"
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css"
+import { Header } from "../Home/Header"
 import "./style.css"
 export const Cart = () => {
     const product = useSelector(state => state.product);
@@ -15,7 +16,7 @@ export const Cart = () => {
     }
     return (
         <>
-            <div className="header__checkout">
+            {/* <div className="header__checkout">
                 <div className="header_12">
                     <div class="header-top">
                         <nav className='header__navbar'>
@@ -130,7 +131,8 @@ export const Cart = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
+            <Header />
             <div className="cart-page">
                 <div className="breadcrumbs">
                     <div className="grid wide">
@@ -172,6 +174,8 @@ export const Cart = () => {
 
                                     </thead>
                                     <tbody>
+                                        {product.length === 0 && <img src="https://store.vtctelecom.com.vn/Content/images/no-data.png" className="img-nodata" />}
+
                                         {product.map((item, index) => (
                                             <tr key={index}>
 
@@ -215,7 +219,6 @@ export const Cart = () => {
                                                 </td>
                                             </tr>
                                         ))}
-                                        {product.length === 0 && <h1 >No Data</h1>}
                                     </tbody>
                                 </table>
 
@@ -254,7 +257,7 @@ export const Cart = () => {
                                                     </li>
                                                     <li className="last">
                                                         You Pay
-                                                        <span>{(total +shipfee).toFixed(2)}</span>
+                                                        <span>{(total + shipfee).toFixed(2)}</span>
                                                     </li>
                                                     <div className="button5">
                                                         <a href="" className="btn">Checkout</a>

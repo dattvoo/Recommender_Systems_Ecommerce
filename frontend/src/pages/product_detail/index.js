@@ -11,13 +11,13 @@ import { Header } from "../Home/Header";
 import { TrendingItem } from "../Home/TrendingItem";
 import "./style.css";
 
-export const Product__Detail = () => {
+export const Product__Detail = ({ hanldeAddToCart }) => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [product, setProduct] = useState();
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
-  const [cart, setCart] = useState([]);
+
   const getRecommendProduct = async () => {
     try {
       const { data } = await axios.get(`http://127.0.0.1:8000/product/${id}`);
@@ -45,32 +45,16 @@ export const Product__Detail = () => {
     getRecommendProduct();
     window.scrollTo(0, 0);
   }, [id]);
-  const hanldeAddToCart = (product) => {
-    // Update cart item quantity if already in cart
-    if (cart.some((item) => item?.id === product?.id)) {
-      setCart((cart) =>
-        cart.map((item) =>
-          item?.id === product?.id
-            ? {
-              ...item,
-              quantity: item.quantity + quantity,
-            }
-            : item
-        )
-      );
-      return;
-    }
 
-    // Add to cart
-    setCart((cart) => [
-      ...cart,
-      { ...product, quantity: quantity }, // <-- initial amount 1
-    ]);
-  };
 
-  useEffect(() => {
-    dispatch({ type: "ADD_PRODUCT_TO_CART", payload: cart });
-  }, [cart]);
+
+
+  // useEffect(() => {
+  //   console.log("Dispathed");
+  //   console.log("🚀 ~ file: index.js:21 ~ cart", cart)
+  // }, [cart]);
+
+
   return (
     <div className="product-detail">
       {/* <div className="header__checkout">
@@ -399,7 +383,7 @@ export const Product__Detail = () => {
                           ? "soldout"
                           : "availability"
                           }`}
-                        onClick={() => hanldeAddToCart(product)}
+                        onClick={() => hanldeAddToCart(product, quantity)}
                         disabled={product?.status === "Sold Out" ? true : false}
                       >
                         Add To Card

@@ -189,7 +189,7 @@
 .item__cart:hover .header-shopping-cart {
   position: absolute;
     width: 300px;
-    min-height: 300px;
+    min-height: 220px;
     max-height: 500px;
     overflow-y: scroll;
     border-radius: 9px;

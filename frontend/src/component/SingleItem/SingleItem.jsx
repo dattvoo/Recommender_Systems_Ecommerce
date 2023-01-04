@@ -6,14 +6,13 @@ export const SingleItem = ({ productId }) => {
  
   return (
     <Col xl={6} lg={8}>
-      <Link to={`/product/${productId}`} autoSave="false">
+      <Link to={`/product/${productId}`} >
         <Card
           hoverable
           style={{ width: 240 }}
           cover={
             <img
               alt="example"
-              // src="	https://wpthemesgrid.com/themes/free/eshop/images/products/p1.jpg"
               src={`https://images.asos-media.com/products/ugg-classic-mini-boots-in-black-suede/${productId}-2`}
             />
           }
