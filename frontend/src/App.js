@@ -9,6 +9,8 @@ import { Login } from './pages/Login/index.js';
 import { Product__Detail } from './pages/product_detail';
 import { LoggedInRoutes } from './router/LoggedInRoutes';
 import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
+import { Login1 } from './pages/login1/index.js';
+import { Register } from './pages/register';
 function App() {
   const dispatch = useDispatch();
 
@@ -59,6 +61,9 @@ function App() {
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login />} />
+          <Route path="/login1" element={<Login1 />} />
+          <Route path="/register" element={<Register />} />
+
         </Route>
       </Routes>
     </div>
