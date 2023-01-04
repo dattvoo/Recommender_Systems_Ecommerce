@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux';
 import { Cart } from './pages/Cart';
 import { Checkout } from './pages/Checkout';
 import { Product__Detail } from './pages/product_detail';
+import { Login1 } from './pages/login1/index.js';
+import { Register } from './pages/register';
 function App() {
   const user = useSelector((state) => state.user);
   
@@ -25,6 +27,9 @@ function App() {
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login />} />
+          <Route path="/login1" element={<Login1 />} />
+          <Route path="/register" element={<Register />} />
+
         </Route>
       </Routes>
     </div>
