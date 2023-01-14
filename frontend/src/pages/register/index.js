@@ -34,7 +34,7 @@ export const Register = () => {
       <div className="login-form__middle">
         <div className="login-form__mod">
           <div className="login-form__mod-left">
-            <img alt="photo" src={require("../../general/img/bannerlogin5.jpg")} className='login-form__mod-left-img' />
+            <img alt="photo" src={require("../../general/img/banner4.png")} className='login-form__mod-left-img' />
           </div>
           <div className="login-form__mod-right">
             <h3 className="login-form__mod-title">
