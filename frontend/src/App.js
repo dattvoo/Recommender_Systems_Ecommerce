@@ -11,6 +11,7 @@ import { LoggedInRoutes } from './router/LoggedInRoutes';
 import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
 import { Login1 } from './pages/login1/index.js';
 import { Register } from './pages/register';
+import { AdminPage } from './pages/AdminPage';
 function App() {
   const dispatch = useDispatch();
 
@@ -57,13 +58,13 @@ function App() {
           <Route path='/checkout' element={<Checkout />} />
           <Route path='/product/:id' element={<Product__Detail hanldeAddToCart={hanldeAddToCart} />} />
           <Route path='/product' element={<HomePage />} />
+          <Route path='/admin' element={<AdminPage />} />
           <Route path='/' element={<HomePage />} />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login />} />
           <Route path="/login1" element={<Login1 />} />
           <Route path="/register" element={<Register />} />
-
         </Route>
       </Routes>
     </div>

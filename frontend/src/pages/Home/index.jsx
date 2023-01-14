@@ -14,13 +14,13 @@ const HomePage = () => {
   return (
     <>
       <Header user={user} />
-      <Banner />
+      {/* <Banner /> */}
       <TrendingItem />
       <FromBlog />
       <Content2 />
       <Content6 />
-      <Content7 />
-      <Content5 />
+      {/* <Content7 /> fix*/}
+      {/* /<Content5 /> fix */}
       <Footer />
     </>
   );

@@ -1,19 +1,30 @@
+import axios from "axios"
 import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
-import { CartItem } from "../../component/CartItem"
 import { Footer } from "../../component/footer"
 import "../../general/css/grid.css"
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css"
 import { Header } from "../Home/Header"
 import "./style.css"
+import { Breadcrumb } from 'antd';
+import { Link } from "react-router-dom"
 export const Cart = () => {
     const product = useSelector(state => state.product);
     const shipfee = 2;
-    const navigate = useNavigate();
     let total = 0;
     for (let i = 0; i < product.length; i++) {
         total += product[i].quantity * product[i].price
     }
+
+    const handleConfirm = async () => {
+        try {
+            const { data } = await axios.post("http://localhost:8000/addtodata", {
+                // product_id: id,
+            });
+        } catch (error) {
+
+        }
+    }
+
     return (
         <>
             {/* <div className="header__checkout">
@@ -135,24 +146,15 @@ export const Cart = () => {
             <Header />
             <div className="cart-page">
                 <div className="breadcrumbs">
+                  
                     <div className="grid wide">
-                        <div className="row">
-                            <div className="col l-12">
-                                <div className="bread-inner">
-                                    <ul className="bread-list">
-                                        <li>
-                                            <a href="#">Home
-                                                <i className="fa-solid fa-arrow-right"></i>
-                                            </a>
 
-                                        </li>
-                                        <li className="active">
-                                            <a href="#">Cart</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <Breadcrumb>
+                            <Breadcrumb.Item>
+                                    <Link to="/">Home</Link>                            
+                            </Breadcrumb.Item>
+                            <Breadcrumb.Item>Cart</Breadcrumb.Item>
+                        </Breadcrumb>
                     </div>
                 </div>
                 <div className="shopping-cart section">
@@ -260,7 +262,7 @@ export const Cart = () => {
                                                         <span>{(total + shipfee).toFixed(2)}</span>
                                                     </li>
                                                     <div className="button5">
-                                                        <a href="" className="btn">Checkout</a>
+                                                        <a href="" className="btn" onClick={handleConfirm}>Confirm Your Cart</a>
                                                         <a href="" className="btn">Continue Shopping</a>
                                                     </div>
                                                 </ul>

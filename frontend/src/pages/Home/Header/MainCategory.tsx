@@ -185,7 +185,7 @@ export const MainCategory = () => {
 
       <div className="category__promote">
         <SimpleImageSlider
-          width={920}
+          width={900}
           height={440}
           images={images}
           showBullets={true}
@@ -193,7 +193,7 @@ export const MainCategory = () => {
           slideDuration={0.5}
           loop
           autoPlay={true}
-          style={{borderRadius: "8px"}}
+          style={{ borderRadius: "8px" }}
         />
       </div>
     </div>

@@ -1,3 +1,4 @@
+import { Breadcrumb } from "antd";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -46,187 +47,16 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
     window.scrollTo(0, 0);
   }, [id]);
 
-
-
-
   // useEffect(() => {
   //   console.log("Dispathed");
   //   console.log("🚀 ~ file: index.js:21 ~ cart", cart)
   // }, [cart]);
 
-
   return (
     <div className="product-detail">
-      {/* <div className="header__checkout">
-        <div className="header_12">
-          <div className="header-top">
-            <nav className="header__navbar">
-              <ul className="header__navbar-list">
-                <li className="header__navbar-item">
-                  <i className="fa-solid fa-headset"></i>
-                  <a href="#" className="item__link">
-                    +060 (800) 801-582
-                  </a>
-                </li>
-                <li className="header__navbar-item">
-                  <i className="fa-regular fa-envelope"></i>
-                  <a href="#" className="item__link">
-                    support@shophub.com
-                  </a>
-                </li>
-              </ul>
-
-              <ul className="header__navbar-list">
-                <li className="header__navbar-item">
-                  <i className="fa-solid fa-location-dot"></i>
-                  <a href="#" className="item__link">
-                    Store location
-                  </a>
-                </li>
-                <li className="header__navbar-item">
-                  <i className="fa-regular fa-bell"></i>
-                  <a href="#" className="item__link">
-                    Daily deal
-                  </a>
-                </li>
-                <li className="header__navbar-item">
-                  <i className="fa-solid fa-user"></i>
-                  <a href="#" className="item__link">
-                    My Acount
-                  </a>
-                </li>
-                <li className="header__navbar-item">
-                  <i className="fa-solid fa-power-off"></i>
-                  <a href="#" className="item__link"></a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div className="header-bottom">
-            <div className="header-with-search">
-              <div className="header__logo">
-                <img
-                  src={require("../../general/img/logo.png")}
-                  className="header__logo-img"
-                />
-              </div>
-
-              <div className="header__search">
-                <div className="header__select">
-                  <span>All Category</span>
-                  <i className="fa-solid fa-chevron-down"></i>
-                  <ul className="select__list">
-                    <li className="select__item">All Category</li>
-                    <li className="select__item">Watch</li>
-                    <li className="select__item">Mobile</li>
-                    <li className="select__item">Kid's Item</li>
-                  </ul>
-                </div>
-                <div className="header__search-12">
-                  <input
-                    type="search"
-                    name=""
-                    id=""
-                    className="header__input-search"
-                    placeholder="Search Products Here...."
-                  />
-                  <button className="btn__search">
-                    <i class="btn_icon fa-solid fa-magnifying-glass"></i>
-                  </button>
-                </div>
-              </div>
-
-              <ul className="header__right">
-                <li className="right__item">
-                  <a href="#" className="right__item-link">
-                    <i class="fa-regular fa-heart"></i>
-                  </a>
-                </li>
-
-                <li className="right__item">
-                  <a href="#" className="right__item-link">
-                    <i class="fa-solid fa-circle-user"></i>
-                  </a>
-                </li>
-
-                <li className="right__item item__cart">
-                  <a href="#" className="right__item-link">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                  </a>
-                  <span className="cart__quality">{cart.length}</span>
-                  <CartItem />
-                </li>
-
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="header__menu-bottom">
-          <div className="grid wide">
-            <div className="header__menu">
-              <div className="header__menu-top">
-                <ul className="menu__list">
-                  <li className="menu__item">
-                    <a className="menu-item__link" href="#">
-                      Home
-                    </a>
-                  </li>
-                  <li className="menu__item">
-                    <a className="menu-item__link" href="#">
-                      Product
-                    </a>
-                  </li>
-                  <li className="menu__item">
-                    <a className="menu-item__link" href="#">
-                      Service
-                    </a>
-                  </li>
-                  <li className="menu__item item__shop">
-                    <a className="menu-item__link" href="#">
-                      Shop
-                      <i className="fa-solid fa-chevron-down"></i>
-                    </a>
-                    <ul className="shop__list">
-                      <li className="shop__item">
-                        <a href="#">Card</a>
-                      </li>
-                      <li className="shop__item">
-                        <a href="#">Checkout</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="menu__item">
-                    <a className="menu-item__link" href="#">
-                      Pages
-                    </a>
-                  </li>
-                  <li className="menu__item item__blog">
-                    <a className="menu-item__link" href="#">
-                      Blog
-                      <i className="fa-solid fa-chevron-down"></i>
-                    </a>
-                    <ul className="blog__list">
-                      <li className="blog__item">
-                        <a href="#">Blog Single Sidebar</a>
-                      </li>
-                    </ul>
-                  </li>
-                  <li className="menu__item">
-                    <a className="menu-item__link" href="#">
-                      Contact Us
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
       <Header />
       <div className="breadcrumbs">
-        <div className="grid wide">
+        {/* <div className="grid wide">
           <div className="row">
             <div className="col l-12">
               <div className="bread-inner">
@@ -250,6 +80,15 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
               </div>
             </div>
           </div>
+        </div> */}
+        <div className="grid wide">
+          <Breadcrumb>
+            <Breadcrumb.Item>Home</Breadcrumb.Item>
+            <Breadcrumb.Item>
+              <a href="">Product</a>
+            </Breadcrumb.Item>
+            <Breadcrumb.Item>Product Detail</Breadcrumb.Item>
+          </Breadcrumb>
         </div>
       </div>
       <section className="product-detail section">
@@ -359,7 +198,7 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
                         type="text"
                         class="input-quality"
                         value={quantity}
-                        onChange={() => { }}
+                        onChange={() => {}}
                         min={1}
                       />
                       <button
@@ -379,10 +218,11 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
                   <div className="row">
                     <div className="col l-6">
                       <button
-                        className={`btn btn__add ${product?.status === "Sold Out"
-                          ? "soldout"
-                          : "availability"
-                          }`}
+                        className={`btn btn__add ${
+                          product?.status === "Sold Out"
+                            ? "soldout"
+                            : "availability"
+                        }`}
                         onClick={() => hanldeAddToCart(product, quantity)}
                         disabled={product?.status === "Sold Out" ? true : false}
                       >
@@ -398,7 +238,7 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
                 </div>
 
                 <div className="product__buy" onClick={() => navigate("/cart")}>
-                  <div className="btn btn__buy" >Buy Now</div>
+                  <div className="btn btn__buy">Buy Now</div>
                 </div>
 
                 <div className="product__info">
