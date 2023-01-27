@@ -45,25 +45,3 @@
 .cart_item {
   position: relative;
 }
-
-@media (max-width: 1220px) {
-  .container {
-    width: 980px;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 1000px) {
-  .container {
-    width: 780px;
-    margin: 0 auto;
-  }
-}
-@media (max-width: 780px) {
-  .container {
-    width: 580px;
-    margin: 0 auto;
-  }
-  .list_product {
-    transform: translateX(42px);
-  }
-}
