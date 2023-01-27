@@ -40,8 +40,6 @@ function App() {
   };
 
   useEffect(() => {
-    console.log("Dispathed");
-    console.log("🚀 ~ file: index.js:21 ~ cart", cart);
     dispatch({ type: "ADD_PRODUCT_TO_CART", payload: cart });
 
   }, [cart]);
@@ -62,8 +60,8 @@ function App() {
           <Route path='/' element={<HomePage />} />
         </Route>
         <Route element={<NotLoggedInRoutes />}>
-          <Route path="/login" element={<Login />} />
-          <Route path="/login1" element={<Login1 />} />
+          <Route path="/login" element={<Login1 />} />
+          {/* <Route path="/login1" element={<Login1 />} /> */}
           <Route path="/register" element={<Register />} />
         </Route>
       </Routes>

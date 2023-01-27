@@ -1,3 +1,30 @@
-.btn-submit {
-    
+.login-page {
+  height: 100vh;
+  background: rgb(246, 130, 35);
+  background: linear-gradient(
+    90deg,
+    rgba(246, 130, 35, 0.9640231092436975) 28%,
+    rgba(226, 124, 50, 1) 41%,
+    rgba(220, 122, 55, 1) 53%,
+    rgba(208, 119, 64, 0.9192051820728291) 75%
+  );
+}
+
+.wrap-login {
+  padding-top: 20vh;
+}
+.login {
+  width: 100%;
+  padding: 20px;
+  background: rgb(246, 130, 35);
+  background: linear-gradient(
+    266deg,
+    rgba(246, 130, 35, 0.9640231092436975) 28%,
+    rgba(226, 124, 50, 1) 41%,
+    rgba(220, 122, 55, 1) 53%,
+    rgba(208, 119, 64, 0.9192051820728291) 75%
+  );
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
+    rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
