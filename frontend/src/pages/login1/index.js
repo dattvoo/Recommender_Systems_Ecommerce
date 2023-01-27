@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { ErrorMessage } from "../../component/ErrorMessage";
 import { Footer } from "../../component/footer";
+import { Spin } from "../../component/Spin";
 import "../../general/css/grid.css";
 import "../../general/fontawesome-free-6.2.0-web/css/all.min.css";
 import "../../general/form/validator.js";
 import "./style.css";
-
 export const Login1 = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -19,8 +19,15 @@ export const Login1 = () => {
     username: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   console.log("🚀 ~ file: index.js:22 ~ Login1 ~ valueLogin", valueLogin);
+
   const onFinish = async () => {
+    setLoading(true);
+    if (valueLogin.username === "") {
+      setError("No value in input!");
+      return;
+    }
     try {
       const { data } = await axios.post(
         `${process.env.REACT_APP_BACKEND_URL}/login`,
@@ -28,15 +35,13 @@ export const Login1 = () => {
       );
       dispatch({ type: "LOGIN", payload: data });
       Cookies.set("user", JSON.stringify(data));
+      setLoading(false);
+
       navigate("/");
     } catch (error) {
-      // setLoading(false);
+      setLoading(false);
       setError(error.response.data.message);
     }
-  };
-
-  const onFinishFailed = (errorInfo) => {
-    console.log("Failed:", errorInfo);
   };
 
   const handleFormChange = (e) => {
@@ -51,6 +56,7 @@ export const Login1 = () => {
 
   return (
     <div className="login-form">
+      {loading && <Spin />}
       <div className="login-form__header">
         <div className="login-form__logo">
           <a href="" className="login-form__logo-link">
@@ -99,7 +105,7 @@ export const Login1 = () => {
                   />
                 </div>
               </div>
-              <ErrorMessage errorMessage="asldasdjhaskldoaidoiqueioqdjalskjd asjdklasj asjdias jias " />
+              {error && <ErrorMessage errorMessage={error} />}
               <div className="form-group">
                 <div className="form-group__input">
                   <label for="password" className="form-label">
