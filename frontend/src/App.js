@@ -12,9 +12,10 @@ import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
 import { Login1 } from './pages/login1/index.js';
 import { Register } from './pages/register';
 import { AdminPage } from './pages/AdminPage';
+import { useSelector } from "react-redux";
 function App() {
   const dispatch = useDispatch();
-
+  const user = useSelector((state) => state.user);
   const [cart, setCart] = useState([]);
   const hanldeAddToCart = (product, quantity) => {
     // Update cart item quantity if already in cart
@@ -51,10 +52,10 @@ function App() {
 
       <Routes>
         <Route element={<LoggedInRoutes />}>
-          <Route path='/homepage' element={<HomePage />} />
+          <Route path='/homepage' element={<HomePage user={user} />} />
           <Route path='/cart' element={<Cart />} />
           <Route path='/checkout' element={<Checkout />} />
-          <Route path='/product/:id' element={<Product__Detail hanldeAddToCart={hanldeAddToCart} />} />
+          <Route path='/product/:id' element={<Product__Detail hanldeAddToCart={hanldeAddToCart} user={user} />} />
           <Route path='/product' element={<HomePage />} />
           <Route path='/admin' element={<AdminPage />} />
           <Route path='/' element={<HomePage />} />

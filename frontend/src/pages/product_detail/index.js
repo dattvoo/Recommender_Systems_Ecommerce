@@ -12,7 +12,7 @@ import { Header } from "../Home/Header";
 import { TrendingItem } from "../Home/TrendingItem";
 import "./style.css";
 
-export const Product__Detail = ({ hanldeAddToCart }) => {
+export const Product__Detail = ({ hanldeAddToCart, user }) => {
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [product, setProduct] = useState();
@@ -54,7 +54,7 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
 
   return (
     <div className="product-detail">
-      <Header />
+      <Header user={user} />
       <div className="breadcrumbs">
         {/* <div className="grid wide">
           <div className="row">
@@ -198,7 +198,7 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
                         type="text"
                         class="input-quality"
                         value={quantity}
-                        onChange={() => {}}
+                        onChange={() => { }}
                         min={1}
                       />
                       <button
@@ -218,11 +218,10 @@ export const Product__Detail = ({ hanldeAddToCart }) => {
                   <div className="row">
                     <div className="col l-6">
                       <button
-                        className={`btn btn__add ${
-                          product?.status === "Sold Out"
+                        className={`btn btn__add ${product?.status === "Sold Out"
                             ? "soldout"
                             : "availability"
-                        }`}
+                          }`}
                         onClick={() => hanldeAddToCart(product, quantity)}
                         disabled={product?.status === "Sold Out" ? true : false}
                       >

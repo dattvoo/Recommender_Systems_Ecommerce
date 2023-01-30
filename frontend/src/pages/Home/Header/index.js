@@ -11,11 +11,11 @@ import { Link } from "react-router-dom"
 
 
 export const Header = ({ user }) => {
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const productData = useSelector(state => state.product)
-  const { id } = useParams();
   const { pathname } = useLocation();
   const handleInOut = () => {
     if (user) {
@@ -59,7 +59,7 @@ export const Header = ({ user }) => {
               </li>
               <li className="header__navbar-item" onClick={handleInOut}>
                 <i className="fa-solid fa-power-off"></i>
-                <a href='#' className='item__link' >{user ? "Logout" : "Login"} </a>
+                <Link className='item__link' >{user ? "Logout" : "Login"} </Link>
               </li>
             </ul>
           </nav>
