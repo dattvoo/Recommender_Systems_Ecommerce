@@ -11,85 +11,92 @@ const { generateToken } = require("../helpers/tokens");
 // const { sendVerificationEmail, sendResetPassword } = require("../helpers/mailer");
 // const Code = require("../models/Code");
 // const generateCode = require("../helpers/generateCode");
-// exports.register = async (req, res) => {
-//   try {
-//     const {
-//       first_name,
-//       last_name,
-//       email,
-//       password,
-//       username,
-//       bYear,
-//       bMonth,
-//       bDay,
-//       gender,
-//     } = req.body;
 
-//     if (!validateEmail(email)) {
-//       return res.status(400).json({
-//         message: "invalid email address",
-//       });
-//     }
-//     const check = await User.findOne({ email });
-//     if (check) {
-//       return res.status(400).json({
-//         message:
-//           "This email address already exists,try with a different email address",
-//       });
-//     }
+// Validation Email
+const validateEmail = (email) => {
+    return String(email)
+        .toLowerCase()
+        .match(/^([a-z\d\.-]+)@([a-z\d-]+)\.([a-z]{2,12})(\.[a-z]{2,12})?$/);
+};
 
-//     if (!validateLength(first_name, 3, 30)) {
-//       return res.status(400).json({
-//         message: "first name must between 3 and 30 characters.",
-//       });
-//     }
-//     if (!validateLength(last_name, 3, 30)) {
-//       return res.status(400).json({
-//         message: "last name must between 3 and 30 characters.",
-//       });
-//     }
-//     if (!validateLength(password, 6, 40)) {
-//       return res.status(400).json({
-//         message: "password must be atleast 6 characters.",
-//       });
-//     }
+const validateLength = (text, min, max) => {
+    if (text.length > max || text.length < min) {
+        return false;
+    }
+    return true;
+};
+exports.register = async (req, res) => {
+    try {
+        const {
+            username,
+            password,
+            email,
+            first_name,
+            last_name,
+            role
+        } = req.body;
 
-//     const cryptedPassword = await bcrypt.hash(password, 12);
+        if (!validateEmail(email)) {
+            return res.status(400).json({
+                message: "invalid email address",
+            });
+        }
+        const check = await User.findOne({ username });
+        if (check) {
+            return res.status(400).json({
+                message:
+                    " User name already exists,try with a different user name",
+            });
+        }
 
-//     let tempUsername = first_name + last_name;
-//     let newUsername = await validateUsername(tempUsername);
-//     const user = await new User({
-//       first_name,
-//       last_name,
-//       email,
-//       password: cryptedPassword,
-//       username: newUsername,
-//       bYear,
-//       bMonth,
-//       bDay,
-//       gender,
-//     }).save();
-//     const emailVerificationToken = generateToken(
-//       { id: user._id.toString() },
-//       "30m"
-//     );
-//     const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
-//     sendVerificationEmail(user.email, user.first_name, url);
-//     const token = generateToken({ id: user._id.toString() }, "7d");
-//     res.send({
-//       id: user._id,
-//       username: user.username,
-//       picture: user.picture,
-//       first_name: user.first_name,
-//       last_name: user.last_name,
-//       token: token,
-//       verified: user.verified,
-//       message: "Register Success ! please activate your email to start",
-//     });
-//   } catch (error) {
-//     res.status(500).json({ message: error.message });
-//   }
-// };
+        if (!validateLength(first_name, 3, 30)) {
+            return res.status(400).json({
+                message: "first name must between 3 and 30 characters.",
+            });
+        }
+        if (!validateLength(last_name, 2, 30)) {
+            return res.status(400).json({
+                message: "last name must between 3 and 30 characters.",
+            });
+        }
+        if (!validateLength(password, 6, 40)) {
+            return res.status(400).json({
+                message: "password must be atleast 6 characters.",
+            });
+        }
+
+        const cryptedPassword = await bcrypt.hash(password, 12);
+
+        // let full_name = first_name + last_name;
+        // let newUsername = await validateUsername(tempUsername);
+        const user = await new User({
+            first_name,
+            last_name,
+            email,
+            password: cryptedPassword,
+            username,
+            role
+        }).save();
+        // const emailVerificationToken = generateToken(
+        //     { id: user._id.toString() },
+        //     "30m"
+        // );
+        // const url = `${process.env.BASE_URL}/activate/${emailVerificationToken}`;
+        // sendVerificationEmail(user.email, user.first_name, url);
+        const token = generateToken({ id: user._id.toString() }, "3d");
+        res.send({
+            id: user._id,
+            // username: user.first_name ,
+            first_name: user.first_name,
+            last_name: user.last_name,
+            token: token,
+            verified: user.verified,
+            message: "Register Success ! please activate your email to start",
+        });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
 // exports.activateAccount = async (req, res) => {
 //   try {
 //     const { token } = req.body;
