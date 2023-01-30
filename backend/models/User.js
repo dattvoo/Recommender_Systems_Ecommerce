@@ -13,7 +13,23 @@ const userSchema = mongoose.Schema(
         password: {
             type: String,
             required: [true, "password is required"],
-        }
+        },
+        email: {
+            type: String
+        },
+        first_name: {
+            type: String
+        },
+        last_name: {
+            type: String
+        },
+        role: {
+            type: String
+        },
+
+    },
+    {
+        timestamps: true,
     }
 );
 
