@@ -58,6 +58,7 @@
 }
 
 .login-form__mod-left {
+  min-width: 650px;
   width: 50%;
   height: 100%;
 }
@@ -78,7 +79,7 @@
 }
 
 .login-form__mod-title {
-  padding: 40px 0;
+  padding: 20px 0;
   font-size: 35px;
   color: #f7941d;
   font-weight: 400;

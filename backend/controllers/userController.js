@@ -31,11 +31,12 @@ exports.register = async (req, res) => {
             username,
             password,
             email,
-            first_name,
-            last_name,
+            fullname,
             role
         } = req.body;
-
+        const names = fullname.split(" ")
+        const first_name = names[0];
+        const last_name = names[names.length - 1];
         if (!validateEmail(email)) {
             return res.status(400).json({
                 message: "invalid email address",
@@ -49,16 +50,16 @@ exports.register = async (req, res) => {
             });
         }
 
-        if (!validateLength(first_name, 3, 30)) {
-            return res.status(400).json({
-                message: "first name must between 3 and 30 characters.",
-            });
-        }
-        if (!validateLength(last_name, 2, 30)) {
-            return res.status(400).json({
-                message: "last name must between 3 and 30 characters.",
-            });
-        }
+        // if (!validateLength(first_name, 3, 30)) {
+        //     return res.status(400).json({
+        //         message: "first name must between 3 and 30 characters.",
+        //     });
+        // }
+        // if (!validateLength(last_name, 2, 30)) {
+        //     return res.status(400).json({
+        //         message: "last name must between 3 and 30 characters.",
+        //     });
+        // }
         if (!validateLength(password, 6, 40)) {
             return res.status(400).json({
                 message: "password must be atleast 6 characters.",
