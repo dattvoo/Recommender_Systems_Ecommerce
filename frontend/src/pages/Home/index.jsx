@@ -11,7 +11,7 @@ const HomePage = (user) => {
   return (
     <>
       <Header user={user} />
-      {/* <Banner /> */}
+      <Banner />
       <TrendingItem />
       <FromBlog />
       <Content2 />

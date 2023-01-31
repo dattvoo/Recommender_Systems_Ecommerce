@@ -60,9 +60,9 @@ function App() {
           <Route path='/admin' element={<AdminPage />} />
           <Route path='/' element={<HomePage />} />
         </Route>
+
         <Route element={<NotLoggedInRoutes />}>
           <Route path="/login" element={<Login1 />} />
-          {/* <Route path="/login1" element={<Login1 />} /> */}
           <Route path="/register" element={<Register />} />
         </Route>
       </Routes>
