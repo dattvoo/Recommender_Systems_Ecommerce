@@ -312,12 +312,12 @@
 
 .menu__item {
   padding: 0 6px;
-  width: 95px;
+  min-width: 110px;
 }
 
 .menu-item__link {
   color: #fff;
-  /* font-size: 18px; */
+  font-size: 18px;
   text-decoration: none;
   font-weight: 500;
 }
