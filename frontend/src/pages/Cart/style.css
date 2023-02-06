@@ -296,3 +296,9 @@ ul , li , a{
     background: #f7941d;
     
 }
+.product-desc {
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    display: -webkit-box;
+}

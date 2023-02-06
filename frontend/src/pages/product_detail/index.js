@@ -164,6 +164,7 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
                         onClick={() => {
                           setQuantity(quantity - 1);
                         }}
+                        disabled={quantity === 1 ? true : false}
                       >
                         <i class="fa fa-minus"></i>
                       </button>
