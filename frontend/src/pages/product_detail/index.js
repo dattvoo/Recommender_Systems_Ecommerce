@@ -47,40 +47,13 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
     window.scrollTo(0, 0);
   }, [id]);
 
-  // useEffect(() => {
-  //   console.log("Dispathed");
-  //   console.log("🚀 ~ file: index.js:21 ~ cart", cart)
-  // }, [cart]);
+  
 
   return (
     <div className="product-detail">
       <Header user={user} />
       <div className="breadcrumbs">
-        {/* <div className="grid wide">
-          <div className="row">
-            <div className="col l-12">
-              <div className="bread-inner">
-                <ul className="bread-list">
-                  <li>
-                    <a href="#">
-                      Home
-                      <i className="fa-solid fa-arrow-right"></i>
-                    </a>
-                  </li>
-                  <li className="active">
-                    <a href="#">
-                      Product
-                      <i className="fa-solid fa-arrow-right"></i>
-                    </a>
-                  </li>
-                  <li className="active">
-                    <a href="#">Woman Ring</a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div> */}
+     
         <div className="grid wide">
           <Breadcrumb>
             <Breadcrumb.Item>Home</Breadcrumb.Item>

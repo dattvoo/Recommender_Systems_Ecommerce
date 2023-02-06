@@ -142,6 +142,7 @@ exports.login = async (req, res) => {
             last_name: user.last_name,
             token: token,
             verified: user.verified,
+            role: user.role,
             message: "Register Success ! please activate your email to start",
         });
     } catch (error) {
