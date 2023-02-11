@@ -4,8 +4,7 @@ const { ObjectId } = mongoose.Schema;
 
 const cartItemsSchema = mongoose.Schema({
   user_id: {
-    type: ObjectId,
-    required: [true, "user id not invalid"],
+    type: mongoose.Schema.Types.ObjectId,
     ref: "User"
   },
   cartItems: [
@@ -16,4 +15,4 @@ const cartItemsSchema = mongoose.Schema({
   ],
 }, {timestamp:true});
 
-module.exports = mongoose.model("cartItemsSchema", cartItemsSchema);
+module.exports = mongoose.model("CartItem", cartItemsSchema);
