@@ -11,14 +11,14 @@ import rootReducer from "./reducers";
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const store = createStore(rootReducer, composeWithDevTools());
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
 
       <BrowserRouter>
         <App />
       </BrowserRouter>
     </Provider>
-  </React.StrictMode>
+  // </React.StrictMode>w
 );
 
 // If you want to start measuring performance in your app, pass a function

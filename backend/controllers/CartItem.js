@@ -25,8 +25,9 @@ exports.addToCart = async (req, res) => {
   //     ]);
   //   };
   try {
-    const { user_id, product } = req.body;
-    const cartItem = await cartItemsSchema.findOne({ user_id });
+    const { user_id ,product } = req.body;
+    const cartItem = await cartItemsSchema.findOne({ user_id }).populate("user_id").populate("cartItems.id");
+    console.log("🚀 ~ file: CartItem.js:30 ~ exports.addToCart= ~ cartItem", cartItem)
     const quantity = parseInt(product.quantity);
     if (cartItem) {
       // Update cart item quantity if already in cart
@@ -36,15 +37,14 @@ exports.addToCart = async (req, res) => {
       // Remove item when quantity set === 0
       if (indexFound !== -1 && quantity === 0) {
         cartItem.cartItems.splice(indexFound, 1);
-        console.log(cartItem.cartItems);
       } else if (indexFound !== -1) {
-        console.log("2");
         cartItem.cartItems[indexFound].quantity =
           parseInt(cartItem.cartItems[indexFound].quantity) +
           parseInt(product.quantity);
       } else if (quantity > 0) {
         cartItem.cartItems.push({
           product_id: product.product_id,
+          id: product.id,
           quantity: product.quantity,
         });
       } else {
@@ -65,11 +65,12 @@ exports.addToCart = async (req, res) => {
           {
             product_id: product.product_id,
             quantity: quantity,
+            id:  product.id
           },
         ],
       }).save();
       res.status(200).json({
-        message: "Add to cart success",
+        message: "New User Add to cart success",
         data: data,
       });
     }
@@ -81,9 +82,9 @@ exports.addToCart = async (req, res) => {
 exports.getCartItems = async (req, res) => {
   const { user_id } = req.body;
   try {
-    const cartItem = await cartItemsSchema.findOne({ user_id });
+    const cartItem = await cartItemsSchema.findOne({ user_id }).populate("cartItems.id");
     if (!cartItem) {
-      res.status(400).json({
+      res.status(404).json({
         message: "Get cart item is false",
       });
     } else {

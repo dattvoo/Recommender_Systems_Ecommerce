@@ -26,7 +26,7 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
       const { data } = await axios.get(`http://127.0.0.1:8000/product/${id}`);
       setData(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
   const getProduct = async () => {
@@ -38,7 +38,7 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
         setProduct(data);
       }
     } catch (error) {
-      console.log(error);
+      // console.log(error);
     }
   };
 

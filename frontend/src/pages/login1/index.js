@@ -20,7 +20,6 @@ export const Login1 = () => {
     password: "",
   });
   const [loading, setLoading] = useState(false);
-  console.log("🚀 ~ file: index.js:22 ~ Login1 ~ valueLogin", valueLogin);
 
   const onFinish = async () => {
     setLoading(true);
@@ -45,7 +44,6 @@ export const Login1 = () => {
   };
 
   const handleFormChange = (e) => {
-    console.log(`${e.target.name}: ${e.target.value}`);
     setValueLogin((value) => {
       return {
         ...value,
