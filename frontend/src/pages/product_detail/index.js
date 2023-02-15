@@ -18,7 +18,9 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
   const [product, setProduct] = useState();
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
+  
   const getRecommendProduct = async () => {
     try {
       const { data } = await axios.get(`http://127.0.0.1:8000/product/${id}`);
@@ -27,7 +29,6 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
       console.log(error);
     }
   };
-  const navigate = useNavigate();
   const getProduct = async () => {
     try {
       const { data } = await axios.post("http://localhost:8000/product", {

@@ -77,3 +77,22 @@ exports.addToCart = async (req, res) => {
     res.status(500).json({ message: "False to add to cart!! Try again" });
   }
 };
+
+exports.getCartItems = async (req, res) => {
+  const { user_id } = req.body;
+  try {
+    const cartItem = await cartItemsSchema.findOne({ user_id });
+    if (!cartItem) {
+      res.status(400).json({
+        message: "Get cart item is false",
+      });
+    } else {
+      res.status(200).json({
+        message: "Get cart item is success",
+        cartItem,
+      });
+    }
+  } catch (error) {
+    res.status(404).json({ message: error.message });
+  }
+};
