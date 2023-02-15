@@ -2,32 +2,13 @@ const { default: mongoose } = require("mongoose");
 const cartItemsSchema = require("../models/CartItem");
 
 exports.addToCart = async (req, res) => {
-  //   const hanldeAddToCart = (product, quantity) => {
-  //     // Update cart item quantity if already in cart
-  //     if (cart.some((item) => item?.id === product?.id)) {
-  //       setCart((cart) =>
-  //         cart.map((item) =>
-  //           item?.id === product?.id
-  //             ? {
-  //                 ...item,
-  //                 quantity: item.quantity + quantity,
-  //               }
-  //             : item
-  //         )
-  //       );
-  //       return;
-  //     }
 
-  //     // Add to cart
-  //     setCart((cart) => [
-  //       ...cart,
-  //       { ...product, quantity: quantity }, // <-- initial amount 1
-  //     ]);
-  //   };
   try {
     const { user_id ,product } = req.body;
+    // console.log(product)
+    // id, product_id, quantity
     const cartItem = await cartItemsSchema.findOne({ user_id }).populate("user_id").populate("cartItems.id");
-    console.log("🚀 ~ file: CartItem.js:30 ~ exports.addToCart= ~ cartItem", cartItem)
+    // console.log("🚀 ~ file: CartItem.js:30 ~ exports.addToCart= ~ cartItem", cartItem)
     const quantity = parseInt(product.quantity);
     if (cartItem) {
       // Update cart item quantity if already in cart

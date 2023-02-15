@@ -12,15 +12,17 @@ import { Header } from "../Home/Header";
 import { TrendingItem } from "../Home/TrendingItem";
 import "./style.css";
 
-export const Product__Detail = ({ hanldeAddToCart, user }) => {
+export const Product__Detail = ({ user}) => {
+  console.log("🚀 ~ file: index.js:16 ~ user", user);
   const { id } = useParams();
   const [data, setData] = useState([]);
   const [product, setProduct] = useState();
   const [quantity, setQuantity] = useState(1);
-  const dispatch = useDispatch();
+  const [refresh, setRefresh] = useState(false);
+  console.log("🚀 ~ file: index.js:22 ~ refresh", refresh)
+  // const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  
   const getRecommendProduct = async () => {
     try {
       const { data } = await axios.get(`http://127.0.0.1:8000/product/${id}`);
@@ -41,20 +43,40 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
       // console.log(error);
     }
   };
+  const hanldeAddToCart = async () => {
+    console.log("🚀 ~ file: index.js:37 ~ getProduct ~ data", product.id);
+    try {
+      const { data } = await axios.post("http://localhost:8000/addToCart", {
+        user_id: user.id,
+        product: {
+          id: "63a41835cb5e84459cb28822",
+          product_id: product?.id,
+          quantity: quantity,
+        },
+      });
+      if(data) {
+        setRefresh(true);
+      }
+      console.log("🚀 ~ file: index.js:55 ~ hanldeAddToCart ~ data", data)
+    } catch (error) {
+        console.log(error.message)
+    }
+  };
 
   useEffect(() => {
     getProduct();
     getRecommendProduct();
     window.scrollTo(0, 0);
-  }, [id]);
-
-  
-
+  }, [id, refresh]);
+  // useEffect( () => {
+  //   if(quantity === 0) {
+  //       hanldeAddToCart(product, 0)
+  //   }
+  // }, [quantity])
   return (
     <div className="product-detail">
-      <Header user={user} />
+      <Header user={user} refresh={refresh} setRefresh={setRefresh}/>
       <div className="breadcrumbs">
-     
         <div className="grid wide">
           <Breadcrumb>
             <Breadcrumb.Item>Home</Breadcrumb.Item>
@@ -165,7 +187,7 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
                         onClick={() => {
                           setQuantity(quantity - 1);
                         }}
-                        disabled={quantity === 1 ? true : false}
+                        disabled={quantity === 0 ? true : false}
                       >
                         <i class="fa fa-minus"></i>
                       </button>
@@ -173,7 +195,7 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
                         type="text"
                         class="input-quality"
                         value={quantity}
-                        onChange={() => { }}
+                        onChange={() => {}}
                         min={1}
                       />
                       <button
@@ -193,11 +215,12 @@ export const Product__Detail = ({ hanldeAddToCart, user }) => {
                   <div className="row">
                     <div className="col l-6">
                       <button
-                        className={`btn btn__add ${product?.status === "Sold Out"
+                        className={`btn btn__add ${
+                          product?.status === "Sold Out"
                             ? "soldout"
                             : "availability"
-                          }`}
-                        onClick={() => hanldeAddToCart(product, quantity)}
+                        }`}
+                        onClick={hanldeAddToCart}
                         disabled={product?.status === "Sold Out" ? true : false}
                       >
                         Add To Card

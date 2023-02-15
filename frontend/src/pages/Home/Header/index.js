@@ -11,7 +11,8 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export const Header = () => {
+export const Header = ({refresh, setRefresh}) => {
+  console.log("🚀 ~ file: index.js:15 ~ Header ~ refresh", refresh)
   const user = useSelector(state => state.user)
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -36,9 +37,11 @@ export const Header = () => {
       });
       if (data) {
         setCartItems(data);
+        setRefresh(false);
       }
       else {
         setCartItems([]);
+        setRefresh(false);
       }
     } catch (error) {
       // console.log({ message: error.message });
@@ -46,7 +49,8 @@ export const Header = () => {
   };
   useEffect(() => {
     getCartItem();
-  }, []);
+    console.log("Nhay vao day");
+  }, [refresh]);
   return (
     <HeaderStyle>
       <>

@@ -8,8 +8,8 @@ import "./style.css";
 import { Breadcrumb } from "antd";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
-export const Cart = () => {
-  const product = useSelector((state) => state.product);
+export const Cart = ({refresh, setRefres}) => {
+  console.log("🚀 ~ file: index.js:12 ~ Cart ~ refresh", refresh)
   const user = useSelector((state) => state.user);
 
   const [cartItems, setCartItems] = useState([]);
