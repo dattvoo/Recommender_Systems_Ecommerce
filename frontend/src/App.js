@@ -1,18 +1,16 @@
-import { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import { Cart } from './pages/Cart';
-import { Checkout } from './pages/Checkout';
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import { AdminPage } from "./pages/AdminPage";
+import { Cart } from "./pages/Cart";
+import { Checkout } from "./pages/Checkout";
 import HomePage from "./pages/Home";
-import { Login } from './pages/Login/index.js';
-import { Product__Detail } from './pages/product_detail';
-import { LoggedInRoutes } from './router/LoggedInRoutes';
-import { NotLoggedInRoutes } from './router/NotLoggedInRoutes';
-import { Login1 } from './pages/login1/index.js';
-import { Register } from './pages/register';
-import { AdminPage } from './pages/AdminPage';
-import { useSelector } from "react-redux";
+import { Login1 } from "./pages/login1/index.js";
+import { Product__Detail } from "./pages/product_detail";
+import { Register } from "./pages/register";
+import { LoggedInRoutes } from "./router/LoggedInRoutes";
+import { NotLoggedInRoutes } from "./router/NotLoggedInRoutes";
 function App() {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -24,9 +22,9 @@ function App() {
         cart.map((item) =>
           item?.id === product?.id
             ? {
-              ...item,
-              quantity: item.quantity + quantity,
-            }
+                ...item,
+                quantity: item.quantity + quantity,
+              }
             : item
         )
       );
@@ -42,23 +40,26 @@ function App() {
 
   useEffect(() => {
     dispatch({ type: "ADD_PRODUCT_TO_CART", payload: cart });
-
   }, [cart]);
 
-
+ 
 
   return (
     <div className="App">
-
       <Routes>
         <Route element={<LoggedInRoutes />}>
-          <Route path='/homepage' element={<HomePage user={user} />} />
-          <Route path='/cart' element={<Cart />} />
-          <Route path='/checkout' element={<Checkout />} />
-          <Route path='/product/:id' element={<Product__Detail hanldeAddToCart={hanldeAddToCart} user={user} />} />
-          <Route path='/product' element={<HomePage />} />
-          <Route path='/admin' element={<AdminPage />} />
-          <Route path='/' element={<HomePage />} />
+          <Route path="/homepage" element={<HomePage user={user} />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route
+            path="/product/:id"
+            element={
+              <Product__Detail hanldeAddToCart={hanldeAddToCart} user={user} />
+            }
+          />
+          <Route path="/product" element={<HomePage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/" element={<HomePage />} />
         </Route>
 
         <Route element={<NotLoggedInRoutes />}>
